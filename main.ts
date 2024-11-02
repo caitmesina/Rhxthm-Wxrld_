@@ -4,37 +4,63 @@ namespace SpriteKind {
     export const DownF = SpriteKind.create()
     export const UpD = SpriteKind.create()
 }
-scene.onOverlapTile(SpriteKind.LeftS, assets.tile`Black`, function (sprite2, location2) {
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    tiles.setCurrentTilemap(tilemap`TileMapDTrigger`)
+})
+scene.onOverlapTile(SpriteKind.RightG, assets.tile`GrayFill`, function (sprite7, location7) {
     miss += 1
-    sprites.destroy(sprite2)
+    sprites.destroy(sprite7)
 })
-scene.onOverlapTile(SpriteKind.DownF, assets.tile`FKey`, function (sprite, location) {
-    if (controller.down.isPressed()) {
-        sprites.destroy(sprite)
-    }
-})
-scene.onOverlapTile(SpriteKind.UpD, assets.tile`Black`, function (sprite4, location4) {
-    miss += 1
-    sprites.destroy(sprite4)
-})
-scene.onOverlapTile(SpriteKind.UpD, assets.tile`DKey`, function (sprite8, location8) {
-    if (controller.up.isPressed()) {
-        sprites.destroy(sprite8)
-    }
-})
-scene.onOverlapTile(SpriteKind.RightG, assets.tile`GKey`, function (sprite6, location6) {
+scene.onOverlapTile(SpriteKind.RightG, assets.tile`HitBoxG`, function (sprite6, location6) {
     if (controller.right.isPressed()) {
         sprites.destroy(sprite6)
     }
+    hits += 1
 })
-scene.onOverlapTile(SpriteKind.LeftS, assets.tile`SKey`, function (sprite5, location5) {
+controller.down.onEvent(ControllerButtonEvent.Released, function () {
+    tiles.setCurrentTilemap(tilemap`TileMapDefault`)
+})
+scene.onOverlapTile(SpriteKind.DownF, assets.tile`GrayFill`, function (sprite3, location3) {
+    miss += 1
+    sprites.destroy(sprite3)
+})
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    tiles.setCurrentTilemap(tilemap`TileMapSTrigger`)
+})
+controller.right.onEvent(ControllerButtonEvent.Released, function () {
+    tiles.setCurrentTilemap(tilemap`TileMapDefault`)
+})
+controller.left.onEvent(ControllerButtonEvent.Released, function () {
+    tiles.setCurrentTilemap(tilemap`TileMapDefault`)
+})
+scene.onOverlapTile(SpriteKind.LeftS, assets.tile`HitBoxS`, function (sprite5, location5) {
     if (controller.left.isPressed()) {
         sprites.destroy(sprite5)
     }
+    hits += 1
 })
-scene.onOverlapTile(SpriteKind.DownF, assets.tile`Black`, function (sprite3, location3) {
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    tiles.setCurrentTilemap(tilemap`TileMapDefault0`)
+})
+controller.up.onEvent(ControllerButtonEvent.Released, function () {
+    tiles.setCurrentTilemap(tilemap`TileMapDefault`)
+})
+scene.onOverlapTile(SpriteKind.DownF, assets.tile`HitBoxF`, function (sprite, location) {
+    if (controller.down.isPressed()) {
+        sprites.destroy(sprite)
+    }
+    hits += 1
+})
+scene.onOverlapTile(SpriteKind.LeftS, assets.tile`GrayFill`, function (sprite2, location2) {
     miss += 1
-    sprites.destroy(sprite3)
+    sprites.destroy(sprite2)
+})
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    tiles.setCurrentTilemap(tilemap`TileMapFTrigger`)
+})
+scene.onOverlapTile(SpriteKind.UpD, assets.tile`GrayFill`, function (sprite4, location4) {
+    miss += 1
+    sprites.destroy(sprite4)
 })
 function Beats () {
     // intro
@@ -704,11 +730,6 @@ function Beats () {
         DownF2.setVelocity(0, 125)
     })
     timer.after(48070, function () {
-        DownF2 = sprites.create(assets.image`GreenBarImage`, SpriteKind.DownF)
-        tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
-        DownF2.setVelocity(0, 125)
-    })
-    timer.after(48070, function () {
         RightG2 = sprites.create(assets.image`YellowBarImage`, SpriteKind.RightG)
         tiles.placeOnTile(RightG2, tiles.getTileLocation(6, 0))
         RightG2.setVelocity(0, 125)
@@ -1158,27 +1179,24 @@ function Beats () {
         tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
         DownF2.setVelocity(0, 125)
     })
+    timer.after(75000, function () {
+        game.splash("Hits: " + convertToText(hits), "Misses: " + convertToText(miss))
+        game.gameOver(true)
+    })
 }
-scene.onOverlapTile(SpriteKind.RightG, assets.tile`Black`, function (sprite7, location7) {
-    miss += 1
-    sprites.destroy(sprite7)
+scene.onOverlapTile(SpriteKind.UpD, assets.tile`HitBoxD`, function (sprite8, location8) {
+    if (controller.up.isPressed()) {
+        sprites.destroy(sprite8)
+    }
+    hits += 1
 })
 let wait = 0
 let DownF2: Sprite = null
 let UpD2: Sprite = null
 let RightG2: Sprite = null
 let LeftS2: Sprite = null
+let hits = 0
 let miss = 0
-scene.setBackgroundImage(assets.image`TitleScreen`)
-music.play(music.melodyPlayable(music.magicWand), music.PlaybackMode.UntilDone)
-game.showLongText("Press the S, D, F, G keys in time with the music!", DialogLayout.Bottom)
-game.showLongText("Coloured bars will fall and you must press the correct corresponding key!", DialogLayout.Bottom)
-game.showLongText("Good luck...", DialogLayout.Bottom)
-scene.setBackgroundColor(15)
-scene.setBackgroundImage(assets.image`GameBackground`)
-tiles.setCurrentTilemap(tilemap`level`)
-pause(2000)
-Beats()
 MakeyMakey.setSimulatorKeymap(
 MakeyMakey.PlayerNumber.ONE,
 MakeyMakey.MakeyMakeyKey.D,
@@ -1188,11 +1206,23 @@ MakeyMakey.MakeyMakeyKey.G,
 MakeyMakey.MakeyMakeyKey.A,
 MakeyMakey.MakeyMakeyKey.SPACE
 )
+scene.setBackgroundImage(assets.image`TitleScreen`)
+music.play(music.melodyPlayable(music.magicWand), music.PlaybackMode.UntilDone)
+game.showLongText("Greetings! Welcome to Rhxthm Wxrld_!", DialogLayout.Bottom)
+game.showLongText("Press the S, D, F, G keys in time with the music!", DialogLayout.Bottom)
+game.showLongText("Coloured bars will fall and you must press the correct corresponding key!", DialogLayout.Bottom)
+game.showLongText("Try and aim your hits to when the coloured bars reach the white line.", DialogLayout.Bottom)
+game.showLongText("Good luck...", DialogLayout.Bottom)
+scene.setBackgroundColor(15)
+scene.setBackgroundImage(assets.image`GameBackground`)
+tiles.setCurrentTilemap(tilemap`TileMapDefault`)
+pause(2000)
+Beats()
 pause(1000)
 music.play(music.createSong(assets.song`Instead`), music.PlaybackMode.UntilDone)
 game.onUpdate(function () {
     if (controller.left.isPressed()) {
-        if (LeftS2.tileKindAt(TileDirection.Center, assets.tile`SKey`)) {
+        if (LeftS2.tileKindAt(TileDirection.Center, assets.tile`HitBoxS`)) {
             if (wait == 0) {
                 miss += 1
                 wait = 10
@@ -1202,7 +1232,7 @@ game.onUpdate(function () {
         }
     }
     if (controller.up.isPressed()) {
-        if (UpD2.tileKindAt(TileDirection.Center, assets.tile`DKey`)) {
+        if (UpD2.tileKindAt(TileDirection.Center, assets.tile`HitBoxD`)) {
             if (wait == 0) {
                 miss += 1
                 wait = 10
@@ -1212,7 +1242,7 @@ game.onUpdate(function () {
         }
     }
     if (controller.right.isPressed()) {
-        if (DownF2.tileKindAt(TileDirection.Center, assets.tile`FKey`)) {
+        if (DownF2.tileKindAt(TileDirection.Center, assets.tile`HitBoxF`)) {
             if (wait == 0) {
                 miss += 1
                 wait = 10
@@ -1222,7 +1252,7 @@ game.onUpdate(function () {
         }
     }
     if (controller.down.isPressed()) {
-        if (RightG2.tileKindAt(TileDirection.Center, assets.tile`GKey`)) {
+        if (RightG2.tileKindAt(TileDirection.Center, assets.tile`HitBoxG`)) {
             if (wait == 0) {
                 miss += 1
                 wait = 10
