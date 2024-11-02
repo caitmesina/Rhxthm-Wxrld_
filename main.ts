@@ -1066,14 +1066,12 @@ function Beats () {
         UpD2.setVelocity(0, 125)
     })
     // some
-    // 
     timer.after(66540, function () {
         LeftS2 = sprites.create(assets.image`RedBarImage`, SpriteKind.LeftS)
         tiles.placeOnTile(LeftS2, tiles.getTileLocation(3, 0))
         LeftS2.setVelocity(0, 125)
     })
     // thing
-    // 
     timer.after(66715, function () {
         DownF2 = sprites.create(assets.image`GreenBarImage`, SpriteKind.DownF)
         tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
@@ -1171,6 +1169,15 @@ let UpD2: Sprite = null
 let RightG2: Sprite = null
 let LeftS2: Sprite = null
 let miss = 0
+scene.setBackgroundImage(assets.image`TitleScreen`)
+music.play(music.melodyPlayable(music.magicWand), music.PlaybackMode.UntilDone)
+game.showLongText("Press the S, D, F, G keys in time with the music!", DialogLayout.Bottom)
+game.showLongText("Coloured bars will fall and you must press the correct corresponding key!", DialogLayout.Bottom)
+game.showLongText("Good luck...", DialogLayout.Bottom)
+scene.setBackgroundColor(15)
+scene.setBackgroundImage(assets.image`GameBackground`)
+tiles.setCurrentTilemap(tilemap`level`)
+pause(2000)
 Beats()
 MakeyMakey.setSimulatorKeymap(
 MakeyMakey.PlayerNumber.ONE,
@@ -1181,7 +1188,6 @@ MakeyMakey.MakeyMakeyKey.G,
 MakeyMakey.MakeyMakeyKey.A,
 MakeyMakey.MakeyMakeyKey.SPACE
 )
-tiles.setCurrentTilemap(tilemap`level`)
 pause(1000)
 music.play(music.createSong(assets.song`Instead`), music.PlaybackMode.UntilDone)
 game.onUpdate(function () {

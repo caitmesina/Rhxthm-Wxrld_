@@ -2106,7 +2106,6 @@ def Beats():
     timer.after(66160, on_after201)
     
     # some
-    # 
     
     def on_after202():
         global LeftS2
@@ -2118,7 +2117,6 @@ def Beats():
     timer.after(66540, on_after202)
     
     # thing
-    # 
     
     def on_after203():
         global DownF2
@@ -2307,6 +2305,24 @@ UpD2: Sprite = None
 RightG2: Sprite = None
 LeftS2: Sprite = None
 miss = 0
+scene.set_background_image(assets.image("""
+    TitleScreen
+"""))
+music.play(music.melody_playable(music.magic_wand),
+    music.PlaybackMode.UNTIL_DONE)
+game.show_long_text("Press the S, D, F, G keys in time with the music!",
+    DialogLayout.BOTTOM)
+game.show_long_text("Coloured bars will fall and you must press the correct corresponding key!",
+    DialogLayout.BOTTOM)
+game.show_long_text("Good luck...", DialogLayout.BOTTOM)
+scene.set_background_color(15)
+scene.set_background_image(assets.image("""
+    GameBackground
+"""))
+tiles.set_current_tilemap(tilemap("""
+    level
+"""))
+pause(2000)
 Beats()
 MakeyMakey.set_simulator_keymap(MakeyMakey.PlayerNumber.ONE,
     MakeyMakey.MakeyMakeyKey.D,
@@ -2315,9 +2331,6 @@ MakeyMakey.set_simulator_keymap(MakeyMakey.PlayerNumber.ONE,
     MakeyMakey.MakeyMakeyKey.G,
     MakeyMakey.MakeyMakeyKey.A,
     MakeyMakey.MakeyMakeyKey.SPACE)
-tiles.set_current_tilemap(tilemap("""
-    level
-"""))
 pause(1000)
 music.play(music.create_song(assets.song("""
         Instead
