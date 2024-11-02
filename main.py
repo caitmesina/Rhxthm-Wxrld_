@@ -1,135 +1,2323 @@
 @namespace
 class SpriteKind:
-    left = SpriteKind.create()
-    down = SpriteKind.create()
-    up = SpriteKind.create()
-    right = SpriteKind.create()
+    RightG = SpriteKind.create()
+    LeftS = SpriteKind.create()
+    DownF = SpriteKind.create()
+    UpD = SpriteKind.create()
+
+def on_overlap_tile(sprite2, location2):
+    global miss
+    miss += 1
+    sprites.destroy(sprite2)
+scene.on_overlap_tile(SpriteKind.LeftS,
+    assets.tile("""
+        Black
+    """),
+    on_overlap_tile)
+
+def on_overlap_tile2(sprite, location):
+    if controller.down.is_pressed():
+        sprites.destroy(sprite)
+scene.on_overlap_tile(SpriteKind.DownF,
+    assets.tile("""
+        FKey
+    """),
+    on_overlap_tile2)
+
+def on_overlap_tile3(sprite4, location4):
+    global miss
+    miss += 1
+    sprites.destroy(sprite4)
+scene.on_overlap_tile(SpriteKind.UpD,
+    assets.tile("""
+        Black
+    """),
+    on_overlap_tile3)
+
+def on_overlap_tile4(sprite8, location8):
+    if controller.up.is_pressed():
+        sprites.destroy(sprite8)
+scene.on_overlap_tile(SpriteKind.UpD,
+    assets.tile("""
+        DKey
+    """),
+    on_overlap_tile4)
+
+def on_overlap_tile5(sprite6, location6):
+    if controller.right.is_pressed():
+        sprites.destroy(sprite6)
+scene.on_overlap_tile(SpriteKind.RightG,
+    assets.tile("""
+        GKey
+    """),
+    on_overlap_tile5)
+
+def on_overlap_tile6(sprite5, location5):
+    if controller.left.is_pressed():
+        sprites.destroy(sprite5)
+scene.on_overlap_tile(SpriteKind.LeftS,
+    assets.tile("""
+        SKey
+    """),
+    on_overlap_tile6)
+
+def on_overlap_tile7(sprite3, location3):
+    global miss
+    miss += 1
+    sprites.destroy(sprite3)
+scene.on_overlap_tile(SpriteKind.DownF,
+    assets.tile("""
+        Black
+    """),
+    on_overlap_tile7)
+
 def Beats():
+    # intro
     
     def on_after():
-        global left2
-        left2 = sprites.create(assets.image("""
-            UpKey
-        """), SpriteKind.left)
-        tiles.place_on_tile(left2, tiles.get_tile_location(3, 7))
-        left2.set_velocity(0, -50)
-    timer.after(500, on_after)
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(300, on_after)
     
     
     def on_after2():
-        global left2
-        left2 = sprites.create(assets.image("""
-            UpKey
-        """), SpriteKind.left)
-        tiles.place_on_tile(left2, tiles.get_tile_location(3, 7))
-        left2.set_velocity(0, -50)
-    timer.after(700, on_after2)
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(500, on_after2)
     
     
     def on_after3():
-        global left2
-        left2 = sprites.create(assets.image("""
-            UpKey
-        """), SpriteKind.left)
-        tiles.place_on_tile(left2, tiles.get_tile_location(3, 7))
-        left2.set_velocity(0, -50)
-    timer.after(1000, on_after3)
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(700, on_after3)
     
     
     def on_after4():
-        global down2
-        down2 = sprites.create(assets.image("""
-            DownKey
-        """), SpriteKind.down)
-        tiles.place_on_tile(down2, tiles.get_tile_location(4, 7))
-        down2.set_velocity(0, -50)
-    timer.after(1250, on_after4)
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(900, on_after4)
     
     
     def on_after5():
-        global up2
-        up2 = sprites.create(assets.image("""
-            UpKey
-        """), SpriteKind.up)
-        tiles.place_on_tile(up2, tiles.get_tile_location(5, 7))
-        up2.set_velocity(0, -50)
-    timer.after(1500, on_after5)
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(1250, on_after5)
     
     
     def on_after6():
-        global up2
-        up2 = sprites.create(assets.image("""
-            UpKey
-        """), SpriteKind.up)
-        tiles.place_on_tile(up2, tiles.get_tile_location(5, 7))
-        up2.set_velocity(0, -50)
-    timer.after(2000, on_after6)
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(1450, on_after6)
     
     
     def on_after7():
-        global up2
-        up2 = sprites.create(assets.image("""
-            UpKey
-        """), SpriteKind.up)
-        tiles.place_on_tile(up2, tiles.get_tile_location(5, 7))
-        up2.set_velocity(0, -50)
-    timer.after(2000, on_after7)
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(1650, on_after7)
     
     
     def on_after8():
-        global down2
-        down2 = sprites.create(assets.image("""
-            DownKey
-        """), SpriteKind.down)
-        tiles.place_on_tile(down2, tiles.get_tile_location(4, 7))
-        down2.set_velocity(0, -50)
-    timer.after(2500, on_after8)
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(2000, on_after8)
     
     
     def on_after9():
-        global right2
-        right2 = sprites.create(assets.image("""
-            RightKey
-        """), SpriteKind.right)
-        tiles.place_on_tile(right2, tiles.get_tile_location(6, 7))
-        right2.set_velocity(0, -50)
-    timer.after(2750, on_after9)
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(2200, on_after9)
     
     
     def on_after10():
-        global up2
-        up2 = sprites.create(assets.image("""
-            UpKey
-        """), SpriteKind.up)
-        tiles.place_on_tile(up2, tiles.get_tile_location(5, 7))
-        up2.set_velocity(0, -50)
-    timer.after(2750, on_after10)
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(2400, on_after10)
     
     
     def on_after11():
-        game.splash("")
-    timer.after(5000, on_after11)
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(2750, on_after11)
     
-miss = 0
+    
+    def on_after12():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(2950, on_after12)
+    
+    
+    def on_after13():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(3150, on_after13)
+    
+    # intro riff 2
+    
+    def on_after14():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(3400, on_after14)
+    
+    
+    def on_after15():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(3500, on_after15)
+    
+    
+    def on_after16():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(3700, on_after16)
+    
+    
+    def on_after17():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(3900, on_after17)
+    
+    
+    def on_after18():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(4250, on_after18)
+    
+    
+    def on_after19():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(4450, on_after19)
+    
+    
+    def on_after20():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(4650, on_after20)
+    
+    
+    def on_after21():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(5000, on_after21)
+    
+    
+    def on_after22():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(5200, on_after22)
+    
+    
+    def on_after23():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(5400, on_after23)
+    
+    
+    def on_after24():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(5750, on_after24)
+    
+    
+    def on_after25():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(5950, on_after25)
+    
+    
+    def on_after26():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(6150, on_after26)
+    
+    # intro riff repeat 1
+    
+    def on_after27():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(6350, on_after27)
+    
+    
+    def on_after28():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(6550, on_after28)
+    
+    
+    def on_after29():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(6750, on_after29)
+    
+    
+    def on_after30():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(6950, on_after30)
+    
+    
+    def on_after31():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(7300, on_after31)
+    
+    
+    def on_after32():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(7500, on_after32)
+    
+    
+    def on_after33():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(7700, on_after33)
+    
+    
+    def on_after34():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(8050, on_after34)
+    
+    
+    def on_after35():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(8250, on_after35)
+    
+    
+    def on_after36():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(8450, on_after36)
+    
+    
+    def on_after37():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(8850, on_after37)
+    
+    
+    def on_after38():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(9000, on_after38)
+    
+    
+    def on_after39():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(9200, on_after39)
+    
+    # intro riff repeat 2
+    
+    def on_after40():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(9350, on_after40)
+    
+    
+    def on_after41():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(9550, on_after41)
+    
+    
+    def on_after42():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(9750, on_after42)
+    
+    
+    def on_after43():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(9950, on_after43)
+    
+    
+    def on_after44():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(10300, on_after44)
+    
+    
+    def on_after45():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(10500, on_after45)
+    
+    
+    def on_after46():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(10700, on_after46)
+    
+    
+    def on_after47():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(11050, on_after47)
+    
+    
+    def on_after48():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(11250, on_after48)
+    
+    
+    def on_after49():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(11450, on_after49)
+    
+    
+    def on_after50():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(11800, on_after50)
+    
+    # verse 1 "you stare at me like im brain dead"
+    
+    def on_after51():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(13050, on_after51)
+    
+    
+    def on_after52():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(13450, on_after52)
+    
+    
+    def on_after53():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(13850, on_after53)
+    
+    
+    def on_after54():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(14250, on_after54)
+    
+    
+    def on_after55():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(14650, on_after55)
+    
+    
+    def on_after56():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(15000, on_after56)
+    
+    
+    def on_after57():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(15350, on_after57)
+    
+    
+    def on_after58():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(16050, on_after58)
+    
+    # verse 1 "dr bad news came with meds"
+    
+    def on_after59():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(19050, on_after59)
+    
+    
+    def on_after60():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(19450, on_after60)
+    
+    
+    def on_after61():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(19850, on_after61)
+    
+    
+    def on_after62():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(20250, on_after62)
+    
+    
+    def on_after63():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(20600, on_after63)
+    
+    
+    def on_after64():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(20975, on_after64)
+    
+    
+    def on_after65():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(21375, on_after65)
+    
+    # verse 1 "think i'm suffocating underwater bad enough"
+    
+    def on_after66():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(24000, on_after66)
+    
+    
+    def on_after67():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(24200, on_after67)
+    
+    
+    def on_after68():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(24400, on_after68)
+    
+    
+    def on_after69():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(24600, on_after69)
+    
+    
+    def on_after70():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(24800, on_after70)
+    
+    
+    def on_after71():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(25000, on_after71)
+    
+    
+    def on_after72():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(25200, on_after72)
+    
+    
+    def on_after73():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(25400, on_after73)
+    
+    
+    def on_after74():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(25550, on_after74)
+    
+    
+    def on_after75():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(25725, on_after75)
+    
+    
+    def on_after76():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(25900, on_after76)
+    
+    
+    def on_after77():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(26100, on_after77)
+    
+    
+    def on_after78():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(26250, on_after78)
+    
+    # verse 1 "empty promises and lies are made with deeper cuts"
+    
+    def on_after79():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(27000, on_after79)
+    
+    
+    def on_after80():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(27200, on_after80)
+    
+    
+    def on_after81():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(27400, on_after81)
+    
+    
+    def on_after82():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(27600, on_after82)
+    
+    
+    def on_after83():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(27800, on_after83)
+    
+    
+    def on_after84():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(28000, on_after84)
+    
+    
+    def on_after85():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(28200, on_after85)
+    
+    
+    def on_after86():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(28400, on_after86)
+    
+    
+    def on_after87():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(28550, on_after87)
+    
+    
+    def on_after88():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(28725, on_after88)
+    
+    
+    def on_after89():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(28900, on_after89)
+    
+    
+    def on_after90():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(29100, on_after90)
+    
+    
+    def on_after91():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(29250, on_after91)
+    
+    # verse 1 "im okay"
+    
+    def on_after92():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(31000, on_after92)
+    
+    
+    def on_after93():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(31150, on_after93)
+    
+    
+    def on_after94():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(31500, on_after94)
+    
+    # verse 1 "unafraid"
+    
+    def on_after95():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(32500, on_after95)
+    
+    
+    def on_after96():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(32650, on_after96)
+    
+    
+    def on_after97():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(33000, on_after97)
+    
+    # verse 1 "when my lungs collapse its overkill"
+    
+    def on_after98():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(34500, on_after98)
+    
+    
+    def on_after99():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(34690, on_after99)
+    
+    
+    def on_after100():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(34890, on_after100)
+    
+    
+    def on_after101():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(35090, on_after101)
+    
+    
+    def on_after102():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(35270, on_after102)
+    
+    
+    def on_after103():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(35470, on_after103)
+    
+    
+    def on_after104():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(35670, on_after104)
+    
+    
+    def on_after105():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(35850, on_after105)
+    
+    
+    def on_after106():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(36050, on_after106)
+    
+    # prechorus "two whom you wrote"
+    
+    def on_after107():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(36960, on_after107)
+    
+    
+    def on_after108():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(37150, on_after108)
+    
+    
+    def on_after109():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(37520, on_after109)
+    
+    
+    def on_after110():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(37900, on_after110)
+    
+    # prechorus "I hope they choke on words that broke me"
+    
+    def on_after111():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(38500, on_after111)
+    
+    
+    def on_after112():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(38675, on_after112)
+    
+    
+    def on_after113():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(39025, on_after113)
+    
+    
+    def on_after114():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(39425, on_after114)
+    
+    
+    def on_after115():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(39975, on_after115)
+    
+    
+    def on_after116():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(40500, on_after116)
+    
+    
+    def on_after117():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(41125, on_after117)
+    
+    
+    def on_after118():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(41650, on_after118)
+    
+    
+    def on_after119():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(42035, on_after119)
+    
+    # prechorus "and when they ghost"
+    
+    def on_after120():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(42950, on_after120)
+    
+    
+    def on_after121():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(43150, on_after121)
+    
+    
+    def on_after122():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(43525, on_after122)
+    
+    
+    def on_after123():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(43900, on_after123)
+    
+    # prechorus "keep playing dead"
+    
+    def on_after124():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(44480, on_after124)
+    
+    
+    def on_after125():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(44670, on_after125)
+    
+    
+    def on_after126():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(45025, on_after126)
+    
+    
+    def on_after127():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(45425, on_after127)
+    
+    # prechorus "bite my tongue instead"
+    
+    def on_after128():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(46875, on_after128)
+    
+    
+    def on_after129():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(47300, on_after129)
+    
+    
+    def on_after130():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(47670, on_after130)
+    
+    
+    def on_after131():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(48070, on_after131)
+    
+    
+    def on_after132():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(48070, on_after132)
+    
+    # chorus riff 1
+    
+    def on_after133():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(48450, on_after133)
+    
+    
+    def on_after134():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(48650, on_after134)
+    
+    
+    def on_after135():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(48850, on_after135)
+    
+    
+    def on_after136():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(49050, on_after136)
+    
+    
+    def on_after137():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(49350, on_after137)
+    
+    
+    def on_after138():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(49550, on_after138)
+    
+    
+    def on_after139():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(49750, on_after139)
+    
+    
+    def on_after140():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(50150, on_after140)
+    
+    
+    def on_after141():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(50350, on_after141)
+    
+    
+    def on_after142():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(50550, on_after142)
+    
+    
+    def on_after143():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(50900, on_after143)
+    
+    
+    def on_after144():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(51100, on_after144)
+    
+    
+    def on_after145():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(51300, on_after145)
+    
+    # chorus riff 2
+    
+    def on_after146():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(51500, on_after146)
+    
+    
+    def on_after147():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(51675, on_after147)
+    
+    
+    def on_after148():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(51875, on_after148)
+    
+    
+    def on_after149():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(52075, on_after149)
+    
+    
+    def on_after150():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(52425, on_after150)
+    
+    
+    def on_after151():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(52625, on_after151)
+    
+    
+    def on_after152():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(52825, on_after152)
+    
+    
+    def on_after153():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(53175, on_after153)
+    
+    
+    def on_after154():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(53375, on_after154)
+    
+    
+    def on_after155():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(53575, on_after155)
+    
+    
+    def on_after156():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(53925, on_after156)
+    
+    
+    def on_after157():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(54125, on_after157)
+    
+    
+    def on_after158():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(54325, on_after158)
+    
+    # chorus riff repeat 1
+    
+    def on_after159():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(54500, on_after159)
+    
+    
+    def on_after160():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(54700, on_after160)
+    
+    
+    def on_after161():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(54900, on_after161)
+    
+    
+    def on_after162():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(55100, on_after162)
+    
+    
+    def on_after163():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(55450, on_after163)
+    
+    
+    def on_after164():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(55650, on_after164)
+    
+    
+    def on_after165():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(55850, on_after165)
+    
+    
+    def on_after166():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(56150, on_after166)
+    
+    
+    def on_after167():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(56350, on_after167)
+    
+    
+    def on_after168():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(56550, on_after168)
+    
+    
+    def on_after169():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(56850, on_after169)
+    
+    # chorus "let me burn the open wounds in you"
+    
+    def on_after170():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(57050, on_after170)
+    
+    
+    def on_after171():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(57240, on_after171)
+    
+    
+    def on_after172():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(57430, on_after172)
+    
+    
+    def on_after173():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(57620, on_after173)
+    
+    
+    def on_after174():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(57810, on_after174)
+    
+    
+    def on_after175():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(58000, on_after175)
+    
+    
+    def on_after176():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(58190, on_after176)
+    
+    
+    def on_after177():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(58570, on_after177)
+    
+    
+    def on_after178():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(58760, on_after178)
+    
+    
+    def on_after179():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(59330, on_after179)
+    
+    
+    def on_after180():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(59520, on_after180)
+    
+    
+    def on_after181():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(59710, on_after181)
+    
+    
+    def on_after182():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(60090, on_after182)
+    
+    # post chorus "every tragic tales you've told"
+    
+    def on_after183():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(60460, on_after183)
+    
+    
+    def on_after184():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(60650, on_after184)
+    
+    
+    def on_after185():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(60840, on_after185)
+    
+    
+    def on_after186():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(61030, on_after186)
+    
+    
+    def on_after187():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(61220, on_after187)
+    
+    
+    def on_after188():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(61600, on_after188)
+    
+    
+    def on_after189():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(61980, on_after189)
+    
+    # post chorus "becomes my clarity that i've known"
+    
+    def on_after190():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(62550, on_after190)
+    
+    
+    def on_after191():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(62740, on_after191)
+    
+    
+    def on_after192():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(63120, on_after192)
+    
+    
+    def on_after193():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(63500, on_after193)
+    
+    
+    def on_after194():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(63690, on_after194)
+    
+    
+    def on_after195():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(63880, on_after195)
+    
+    
+    def on_after196():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(64260, on_after196)
+    
+    
+    def on_after197():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(64640, on_after197)
+    
+    
+    def on_after198():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(65020, on_after198)
+    
+    # post chorus "that feeling something breathing under my bed"
+    
+    def on_after199():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(65590, on_after199)
+    
+    
+    def on_after200():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(65780, on_after200)
+    
+    
+    def on_after201():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(66160, on_after201)
+    
+    # some
+    # 
+    
+    def on_after202():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(66540, on_after202)
+    
+    # thing
+    # 
+    
+    def on_after203():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(66715, on_after203)
+    
+    
+    def on_after204():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(67095, on_after204)
+    
+    
+    def on_after205():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(67270, on_after205)
+    
+    
+    def on_after206():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(67650, on_after206)
+    
+    
+    def on_after207():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(67825, on_after207)
+    
+    
+    def on_after208():
+        global LeftS2
+        LeftS2 = sprites.create(assets.image("""
+            RedBarImage
+        """), SpriteKind.LeftS)
+        tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
+        LeftS2.set_velocity(0, 125)
+    timer.after(68205, on_after208)
+    
+    
+    def on_after209():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(68380, on_after209)
+    
+    # post chorus "something breathing next to my head instead"
+    
+    def on_after210():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(69520, on_after210)
+    
+    
+    def on_after211():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(69695, on_after211)
+    
+    
+    def on_after212():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(70075, on_after212)
+    
+    
+    def on_after213():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(70250, on_after213)
+    
+    
+    def on_after214():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(70630, on_after214)
+    
+    
+    def on_after215():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(70805, on_after215)
+    
+    
+    def on_after216():
+        global UpD2
+        UpD2 = sprites.create(assets.image("""
+            BlueBarImage
+        """), SpriteKind.UpD)
+        tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+        UpD2.set_velocity(0, 125)
+    timer.after(71185, on_after216)
+    
+    
+    def on_after217():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(71360, on_after217)
+    
+    
+    def on_after218():
+        global RightG2
+        RightG2 = sprites.create(assets.image("""
+            YellowBarImage
+        """), SpriteKind.RightG)
+        tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
+        RightG2.set_velocity(0, 125)
+    timer.after(71740, on_after218)
+    
+    
+    def on_after219():
+        global DownF2
+        DownF2 = sprites.create(assets.image("""
+            GreenBarImage
+        """), SpriteKind.DownF)
+        tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+        DownF2.set_velocity(0, 125)
+    timer.after(72120, on_after219)
+    
+
+def on_overlap_tile8(sprite7, location7):
+    global miss
+    miss += 1
+    sprites.destroy(sprite7)
+scene.on_overlap_tile(SpriteKind.RightG,
+    assets.tile("""
+        Black
+    """),
+    on_overlap_tile8)
+
 wait = 0
-right2: Sprite = None
-up2: Sprite = None
-down2: Sprite = None
-left2: Sprite = None
-scene.set_background_color(15)
-game.set_dialog_text_color(11)
-game.set_dialog_frame(assets.image("""
-    framebox
-"""))
-music.play(music.melody_playable(music.ba_ding),
-    music.PlaybackMode.UNTIL_DONE)
-game.show_long_text("Rhythm Retro Rush", DialogLayout.CENTER)
-game.splash("Press the keys", "in time with the music!")
-game.splash("")
-tiles.set_current_tilemap(tilemap("""
-    TileMap
-"""))
+DownF2: Sprite = None
+UpD2: Sprite = None
+RightG2: Sprite = None
+LeftS2: Sprite = None
+miss = 0
 Beats()
+MakeyMakey.set_simulator_keymap(MakeyMakey.PlayerNumber.ONE,
+    MakeyMakey.MakeyMakeyKey.D,
+    MakeyMakey.MakeyMakeyKey.F,
+    MakeyMakey.MakeyMakeyKey.S,
+    MakeyMakey.MakeyMakeyKey.G,
+    MakeyMakey.MakeyMakeyKey.A,
+    MakeyMakey.MakeyMakeyKey.SPACE)
+tiles.set_current_tilemap(tilemap("""
+    level
+"""))
 pause(1000)
 music.play(music.create_song(assets.song("""
         Instead
@@ -139,8 +2327,8 @@ music.play(music.create_song(assets.song("""
 def on_on_update():
     global miss, wait
     if controller.left.is_pressed():
-        if left2.tile_kind_at(TileDirection.CENTER, assets.tile("""
-            LeftSpaceTile
+        if LeftS2.tile_kind_at(TileDirection.CENTER, assets.tile("""
+            SKey
         """)):
             if wait == 0:
                 miss += 1
@@ -148,8 +2336,8 @@ def on_on_update():
             else:
                 wait += -1
     if controller.up.is_pressed():
-        if up2.tile_kind_at(TileDirection.CENTER, assets.tile("""
-            UpSpaceTile
+        if UpD2.tile_kind_at(TileDirection.CENTER, assets.tile("""
+            DKey
         """)):
             if wait == 0:
                 miss += 1
@@ -157,18 +2345,17 @@ def on_on_update():
             else:
                 wait += -1
     if controller.right.is_pressed():
-        if right2.tile_kind_at(TileDirection.CENTER,
-            assets.tile("""
-                RightSpaceTile
-            """)):
+        if DownF2.tile_kind_at(TileDirection.CENTER, assets.tile("""
+            FKey
+        """)):
             if wait == 0:
                 miss += 1
                 wait = 10
             else:
                 wait += -1
     if controller.down.is_pressed():
-        if down2.tile_kind_at(TileDirection.CENTER, assets.tile("""
-            DownSpaceTile
+        if RightG2.tile_kind_at(TileDirection.CENTER, assets.tile("""
+            GKey
         """)):
             if wait == 0:
                 miss += 1
