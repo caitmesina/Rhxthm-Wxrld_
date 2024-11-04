@@ -12,10 +12,14 @@ def on_up_pressed():
 controller.up.on_event(ControllerButtonEvent.PRESSED, on_up_pressed)
 
 def on_overlap_tile(sprite3, location3):
-    global miss
+    global miss, count, textSprite
     miss += 1
     sprites.destroy(sprite3, effects.ashes, 500)
     statusbar.value += -2
+    count = 0
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convert_to_text(count))
+    textSprite.set_position(12, 9)
 scene.on_overlap_tile(SpriteKind.DownF,
     assets.tile("""
         GrayFillF
@@ -23,10 +27,14 @@ scene.on_overlap_tile(SpriteKind.DownF,
     on_overlap_tile)
 
 def on_overlap_tile2(sprite2, location2):
-    global miss
+    global miss, count, textSprite
     miss += 1
     sprites.destroy(sprite2, effects.ashes, 500)
     statusbar.value += -2
+    count = 0
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convert_to_text(count))
+    textSprite.set_position(12, 9)
 scene.on_overlap_tile(SpriteKind.LeftS,
     assets.tile("""
         GrayFillS
@@ -34,10 +42,14 @@ scene.on_overlap_tile(SpriteKind.LeftS,
     on_overlap_tile2)
 
 def on_overlap_tile3(sprite6, location6):
-    global hits
+    global hits, count, textSprite
     if controller.right.is_pressed():
         sprites.destroy(sprite6)
     hits += 1
+    count += 1
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convert_to_text(count))
+    textSprite.set_position(12, 9)
     info.change_score_by(100)
     statusbar.value += 1
 scene.on_overlap_tile(SpriteKind.RightG,
@@ -71,10 +83,14 @@ def on_left_released():
 controller.left.on_event(ControllerButtonEvent.RELEASED, on_left_released)
 
 def on_overlap_tile4(sprite5, location5):
-    global hits
+    global hits, count, textSprite
     if controller.left.is_pressed():
         sprites.destroy(sprite5)
     hits += 1
+    count += 1
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convert_to_text(count))
+    textSprite.set_position(12, 9)
     info.change_score_by(100)
     statusbar.value += 1
 scene.on_overlap_tile(SpriteKind.LeftS,
@@ -100,8 +116,12 @@ def on_right_pressed():
 controller.right.on_event(ControllerButtonEvent.PRESSED, on_right_pressed)
 
 def on_overlap_tile5(sprite4, location4):
-    global miss
+    global miss, count, textSprite
     miss += 1
+    count = 0
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convert_to_text(count))
+    textSprite.set_position(12, 9)
     sprites.destroy(sprite4, effects.ashes, 500)
     statusbar.value += -2
 scene.on_overlap_tile(SpriteKind.UpD,
@@ -117,10 +137,14 @@ def on_up_released():
 controller.up.on_event(ControllerButtonEvent.RELEASED, on_up_released)
 
 def on_overlap_tile6(sprite, location):
-    global hits
+    global hits, count, textSprite
     if controller.down.is_pressed():
         sprites.destroy(sprite)
     hits += 1
+    count += 1
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convert_to_text(count))
+    textSprite.set_position(12, 9)
     info.change_score_by(100)
     statusbar.value += 1
 scene.on_overlap_tile(SpriteKind.DownF,
@@ -136,8 +160,12 @@ def on_down_pressed():
 controller.down.on_event(ControllerButtonEvent.PRESSED, on_down_pressed)
 
 def on_overlap_tile7(sprite7, location7):
-    global miss
+    global miss, count, textSprite
     miss += 1
+    count = 0
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convert_to_text(count))
+    textSprite.set_position(12, 9)
     sprites.destroy(sprite7, effects.ashes, 500)
     statusbar.value += -2
 scene.on_overlap_tile(SpriteKind.RightG,
@@ -147,10 +175,14 @@ scene.on_overlap_tile(SpriteKind.RightG,
     on_overlap_tile7)
 
 def on_overlap_tile8(sprite8, location8):
-    global hits
+    global hits, count, textSprite
     if controller.up.is_pressed():
         sprites.destroy(sprite8)
     hits += 1
+    count += 1
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convert_to_text(count))
+    textSprite.set_position(12, 9)
     info.change_score_by(100)
     statusbar.value += 1
 scene.on_overlap_tile(SpriteKind.UpD,
@@ -167,6 +199,8 @@ DownF2: Sprite = None
 UpD2: Sprite = None
 RightG2: Sprite = None
 LeftS2: Sprite = None
+count = 0
+textSprite: TextSprite = None
 statusbar: StatusBarSprite = None
 MakeyMakey.set_simulator_keymap(MakeyMakey.PlayerNumber.ONE,
     MakeyMakey.MakeyMakeyKey.D,
@@ -202,6 +236,8 @@ statusbar.set_bar_border(1, 1)
 statusbar.position_direction(CollisionDirection.RIGHT)
 statusbar.set_offset_padding(0, 15)
 statusbar.set_label("HP")
+textSprite = textsprite.create(convert_to_text(count))
+textSprite.set_position(12, 9)
 pause(2000)
 # intro
 

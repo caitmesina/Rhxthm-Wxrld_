@@ -11,17 +11,29 @@ scene.onOverlapTile(SpriteKind.DownF, assets.tile`GrayFillF`, function (sprite3,
     miss += 1
     sprites.destroy(sprite3, effects.ashes, 500)
     statusbar.value += -2
+    count = 0
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convertToText(count))
+    textSprite.setPosition(12, 9)
 })
 scene.onOverlapTile(SpriteKind.LeftS, assets.tile`GrayFillS`, function (sprite2, location2) {
     miss += 1
     sprites.destroy(sprite2, effects.ashes, 500)
     statusbar.value += -2
+    count = 0
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convertToText(count))
+    textSprite.setPosition(12, 9)
 })
 scene.onOverlapTile(SpriteKind.RightG, assets.tile`HitBoxG`, function (sprite6, location6) {
     if (controller.right.isPressed()) {
         sprites.destroy(sprite6)
     }
     hits += 1
+    count += 1
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convertToText(count))
+    textSprite.setPosition(12, 9)
     info.changeScoreBy(100)
     statusbar.value += 1
 })
@@ -42,6 +54,10 @@ scene.onOverlapTile(SpriteKind.LeftS, assets.tile`HitBoxS`, function (sprite5, l
         sprites.destroy(sprite5)
     }
     hits += 1
+    count += 1
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convertToText(count))
+    textSprite.setPosition(12, 9)
     info.changeScoreBy(100)
     statusbar.value += 1
 })
@@ -56,6 +72,10 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 scene.onOverlapTile(SpriteKind.UpD, assets.tile`GrayFillD`, function (sprite4, location4) {
     miss += 1
+    count = 0
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convertToText(count))
+    textSprite.setPosition(12, 9)
     sprites.destroy(sprite4, effects.ashes, 500)
     statusbar.value += -2
 })
@@ -67,6 +87,10 @@ scene.onOverlapTile(SpriteKind.DownF, assets.tile`HitBoxF`, function (sprite, lo
         sprites.destroy(sprite)
     }
     hits += 1
+    count += 1
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convertToText(count))
+    textSprite.setPosition(12, 9)
     info.changeScoreBy(100)
     statusbar.value += 1
 })
@@ -75,6 +99,10 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 scene.onOverlapTile(SpriteKind.RightG, assets.tile`GrayFillG`, function (sprite7, location7) {
     miss += 1
+    count = 0
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convertToText(count))
+    textSprite.setPosition(12, 9)
     sprites.destroy(sprite7, effects.ashes, 500)
     statusbar.value += -2
 })
@@ -83,6 +111,10 @@ scene.onOverlapTile(SpriteKind.UpD, assets.tile`HitBoxD`, function (sprite8, loc
         sprites.destroy(sprite8)
     }
     hits += 1
+    count += 1
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convertToText(count))
+    textSprite.setPosition(12, 9)
     info.changeScoreBy(100)
     statusbar.value += 1
 })
@@ -94,6 +126,8 @@ let DownF2: Sprite = null
 let UpD2: Sprite = null
 let RightG2: Sprite = null
 let LeftS2: Sprite = null
+let count = 0
+let textSprite: TextSprite = null
 let statusbar: StatusBarSprite = null
 MakeyMakey.setSimulatorKeymap(
 MakeyMakey.PlayerNumber.ONE,
@@ -121,6 +155,8 @@ statusbar.setBarBorder(1, 1)
 statusbar.positionDirection(CollisionDirection.Right)
 statusbar.setOffsetPadding(0, 15)
 statusbar.setLabel("HP")
+textSprite = textsprite.create(convertToText(count))
+textSprite.setPosition(12, 9)
 pause(2000)
 // intro
 timer.after(300, function () {
