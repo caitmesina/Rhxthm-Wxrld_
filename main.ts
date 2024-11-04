@@ -14,7 +14,7 @@ scene.onOverlapTile(SpriteKind.DownF, assets.tile`GrayFillF`, function (sprite3,
     count = 0
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convertToText(count))
-    textSprite.setPosition(12, 9)
+    textSprite.setPosition(20, 20)
 })
 scene.onOverlapTile(SpriteKind.LeftS, assets.tile`GrayFillS`, function (sprite2, location2) {
     miss += 1
@@ -23,7 +23,7 @@ scene.onOverlapTile(SpriteKind.LeftS, assets.tile`GrayFillS`, function (sprite2,
     count = 0
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convertToText(count))
-    textSprite.setPosition(12, 9)
+    textSprite.setPosition(20, 20)
 })
 scene.onOverlapTile(SpriteKind.RightG, assets.tile`HitBoxG`, function (sprite6, location6) {
     if (controller.right.isPressed()) {
@@ -33,8 +33,8 @@ scene.onOverlapTile(SpriteKind.RightG, assets.tile`HitBoxG`, function (sprite6, 
     count += 1
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convertToText(count))
-    textSprite.setPosition(12, 9)
-    info.changeScoreBy(100)
+    textSprite.setPosition(20, 20)
+    info.changeScoreBy(150)
     statusbar.value += 1
 })
 controller.down.onEvent(ControllerButtonEvent.Released, function () {
@@ -57,8 +57,8 @@ scene.onOverlapTile(SpriteKind.LeftS, assets.tile`HitBoxS`, function (sprite5, l
     count += 1
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convertToText(count))
-    textSprite.setPosition(12, 9)
-    info.changeScoreBy(100)
+    textSprite.setPosition(20, 20)
+    info.changeScoreBy(150)
     statusbar.value += 1
 })
 statusbars.onZero(StatusBarKind.Health, function (status) {
@@ -75,7 +75,7 @@ scene.onOverlapTile(SpriteKind.UpD, assets.tile`GrayFillD`, function (sprite4, l
     count = 0
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convertToText(count))
-    textSprite.setPosition(12, 9)
+    textSprite.setPosition(20, 20)
     sprites.destroy(sprite4, effects.ashes, 500)
     statusbar.value += -2
 })
@@ -90,8 +90,8 @@ scene.onOverlapTile(SpriteKind.DownF, assets.tile`HitBoxF`, function (sprite, lo
     count += 1
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convertToText(count))
-    textSprite.setPosition(12, 9)
-    info.changeScoreBy(100)
+    textSprite.setPosition(20, 20)
+    info.changeScoreBy(150)
     statusbar.value += 1
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -102,7 +102,7 @@ scene.onOverlapTile(SpriteKind.RightG, assets.tile`GrayFillG`, function (sprite7
     count = 0
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convertToText(count))
-    textSprite.setPosition(12, 9)
+    textSprite.setPosition(20, 20)
     sprites.destroy(sprite7, effects.ashes, 500)
     statusbar.value += -2
 })
@@ -114,8 +114,8 @@ scene.onOverlapTile(SpriteKind.UpD, assets.tile`HitBoxD`, function (sprite8, loc
     count += 1
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convertToText(count))
-    textSprite.setPosition(12, 9)
-    info.changeScoreBy(100)
+    textSprite.setPosition(20, 20)
+    info.changeScoreBy(150)
     statusbar.value += 1
 })
 let wait = 0
@@ -156,7 +156,9 @@ statusbar.positionDirection(CollisionDirection.Right)
 statusbar.setOffsetPadding(0, 15)
 statusbar.setLabel("HP")
 textSprite = textsprite.create(convertToText(count))
-textSprite.setPosition(12, 9)
+textSprite.setPosition(20, 20)
+let combotext = textsprite.create("COMBO")
+combotext.setPosition(20, 11)
 pause(2000)
 // intro
 timer.after(300, function () {

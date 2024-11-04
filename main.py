@@ -19,7 +19,7 @@ def on_overlap_tile(sprite3, location3):
     count = 0
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convert_to_text(count))
-    textSprite.set_position(12, 9)
+    textSprite.set_position(20, 20)
 scene.on_overlap_tile(SpriteKind.DownF,
     assets.tile("""
         GrayFillF
@@ -34,7 +34,7 @@ def on_overlap_tile2(sprite2, location2):
     count = 0
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convert_to_text(count))
-    textSprite.set_position(12, 9)
+    textSprite.set_position(20, 20)
 scene.on_overlap_tile(SpriteKind.LeftS,
     assets.tile("""
         GrayFillS
@@ -49,8 +49,8 @@ def on_overlap_tile3(sprite6, location6):
     count += 1
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convert_to_text(count))
-    textSprite.set_position(12, 9)
-    info.change_score_by(100)
+    textSprite.set_position(20, 20)
+    info.change_score_by(150)
     statusbar.value += 1
 scene.on_overlap_tile(SpriteKind.RightG,
     assets.tile("""
@@ -90,8 +90,8 @@ def on_overlap_tile4(sprite5, location5):
     count += 1
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convert_to_text(count))
-    textSprite.set_position(12, 9)
-    info.change_score_by(100)
+    textSprite.set_position(20, 20)
+    info.change_score_by(150)
     statusbar.value += 1
 scene.on_overlap_tile(SpriteKind.LeftS,
     assets.tile("""
@@ -121,7 +121,7 @@ def on_overlap_tile5(sprite4, location4):
     count = 0
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convert_to_text(count))
-    textSprite.set_position(12, 9)
+    textSprite.set_position(20, 20)
     sprites.destroy(sprite4, effects.ashes, 500)
     statusbar.value += -2
 scene.on_overlap_tile(SpriteKind.UpD,
@@ -144,8 +144,8 @@ def on_overlap_tile6(sprite, location):
     count += 1
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convert_to_text(count))
-    textSprite.set_position(12, 9)
-    info.change_score_by(100)
+    textSprite.set_position(20, 20)
+    info.change_score_by(150)
     statusbar.value += 1
 scene.on_overlap_tile(SpriteKind.DownF,
     assets.tile("""
@@ -165,7 +165,7 @@ def on_overlap_tile7(sprite7, location7):
     count = 0
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convert_to_text(count))
-    textSprite.set_position(12, 9)
+    textSprite.set_position(20, 20)
     sprites.destroy(sprite7, effects.ashes, 500)
     statusbar.value += -2
 scene.on_overlap_tile(SpriteKind.RightG,
@@ -182,8 +182,8 @@ def on_overlap_tile8(sprite8, location8):
     count += 1
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convert_to_text(count))
-    textSprite.set_position(12, 9)
-    info.change_score_by(100)
+    textSprite.set_position(20, 20)
+    info.change_score_by(150)
     statusbar.value += 1
 scene.on_overlap_tile(SpriteKind.UpD,
     assets.tile("""
@@ -237,7 +237,9 @@ statusbar.position_direction(CollisionDirection.RIGHT)
 statusbar.set_offset_padding(0, 15)
 statusbar.set_label("HP")
 textSprite = textsprite.create(convert_to_text(count))
-textSprite.set_position(12, 9)
+textSprite.set_position(20, 20)
+combotext = textsprite.create("COMBO")
+combotext.set_position(20, 11)
 pause(2000)
 # intro
 
