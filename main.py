@@ -2285,7 +2285,15 @@ def on_after218():
     DownF2.set_velocity(0, 125)
 timer.after(72120, on_after218)
 
+pause(1000)
+music.play(music.create_song(assets.song("""
+        Instead
+    """)),
+    music.PlaybackMode.UNTIL_DONE)
+
 # SECTION 5 GAME OVER OR GAME WIN
+
+# IF THEY WIN
 
 def on_after219():
     game.splash("Hits: " + convert_to_text(hits), # using the game function, creates a splash that converts the "hits" variable value into text
@@ -2293,21 +2301,17 @@ def on_after219():
     game.game_over(True) # performs the above code IF player wins (finishes the whole song without getting to 0HP)
 timer.after(75000, on_after219)
 
-pause(1000)
-music.play(music.create_song(assets.song("""
-        Instead
-    """)),
-    music.PlaybackMode.UNTIL_DONE)
+# IF THEY LOSE
 
-def on_on_zero(status):
-    global BlackBackground
-    music.stop_all_sounds()
+def on_on_zero(status): # defines the function "on_on_zero" with "status" variable
+    global BlackBackground # creates global variable BlackBackground
+    music.stop_all_sounds() # using the music function, stops all sounds. So when the game over screen pops up the song isn't still playing in the back
     BlackBackground = sprites.create(assets.image("""
         GameBackground
-    """), SpriteKind.player)
-    BlackBackground.z = 5
-    game.game_over(False)
-statusbars.on_zero(StatusBarKind.health, on_on_zero)
+    """), SpriteKind.player) # sets the "GameBackground" asset I created
+    BlackBackground.z = 5 # sets z value of background high so it sits above the notes.
+    game.game_over(False) # using the game function, tells the system that this the player loses
+statusbars.on_zero(StatusBarKind.health, on_on_zero) # performs the above code when the status bar HP reaches 0. 
 
 def on_on_update():
     global miss, wait

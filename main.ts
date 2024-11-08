@@ -2079,7 +2079,12 @@ timer.after(72120, function on_after218() {
     tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
     DownF2.setVelocity(0, 125)
 })
+pause(1000)
+music.play(music.createSong(assets.song`
+        Instead
+    `), music.PlaybackMode.UntilDone)
 //  SECTION 5 GAME OVER OR GAME WIN
+//  IF THEY WIN
 //  performs the above code IF player wins (finishes the whole song without getting to 0HP)
 timer.after(75000, function on_after219() {
     game.splash("Hits: " + convertToText(hits), "Misses: " + convertToText(miss))
@@ -2087,19 +2092,23 @@ timer.after(75000, function on_after219() {
     //  also converts the "miss" variable value into text within the splash
     game.gameOver(true)
 })
-pause(1000)
-music.play(music.createSong(assets.song`
-        Instead
-    `), music.PlaybackMode.UntilDone)
+//  IF THEY LOSE
+//  using the game function, tells the system that this the player loses
 statusbars.onZero(StatusBarKind.Health, function on_on_zero(status: StatusBarSprite) {
+    //  defines the function "on_on_zero" with "status" variable
     
+    //  creates global variable BlackBackground
     music.stopAllSounds()
+    //  using the music function, stops all sounds. So when the game over screen pops up the song isn't still playing in the back
     BlackBackground = sprites.create(assets.image`
         GameBackground
     `, SpriteKind.Player)
+    //  sets the "GameBackground" asset I created
     BlackBackground.z = 5
+    //  sets z value of background high so it sits above the notes.
     game.gameOver(false)
 })
+//  performs the above code when the status bar HP reaches 0. 
 game.onUpdate(function on_on_update() {
     
     if (controller.left.isPressed()) {
