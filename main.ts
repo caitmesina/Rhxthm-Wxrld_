@@ -6,27 +6,46 @@ namespace SpriteKind {
     export const UpD = SpriteKind.create()
 }
 
+//  SECTION 1: CODE TO RUN ON HITS AND MISSES
+//  CODE FOR LANE 1 (HITS)
+//  defines "on_overlap_tile" function in order to perform specific tasks
+//  uses the status bar function to change the player's HP by +1
 scene.onOverlapTile(SpriteKind.LeftS, assets.tile`
         HitBoxS
     `, function on_overlap_tile(sprite: Sprite, location: tiles.Location) {
+    //  takes the variables "sprite" and "location" as inputs 
     
+    //  defines global variables "hits", "counts", and "textSprite" so that they can be called anywhere in the code, inside and outside the function
     if (controller.left.isPressed()) {
+        //  an if statement in which runs the next lines of code when a condition is met. In this case, if the left key is pressed
         sprites.destroy(sprite)
     }
     
+    //  when the left key is pressed, destroy this sprite.
     hits += 1
+    //  changes the "hits" variable value by +1
     count += 1
+    //  changes the "count" variable (which is the combo count) value by +1
     sprites.destroy(textSprite)
+    //  destoys previous textSprite
     textSprite = textsprite.create(convertToText(count))
+    //  creates a textSprite variable which converts the "count" variable into displayable text. This serves as the combo count
     textSprite.setPosition(20, 20)
+    //  positions the above textSprite at the 20x20th pixel
     info.changeScoreBy(150)
+    //  uses the info function to change the score value by +150
     statusbar.value += 1
 })
+//  assigns the tile "HitBoxS" I created as the tile in which if the sprite overlaps it, it performs the code above.
+//  CODE FOR LANE 2 (HITS)
+//  Code in the next sequences are the same as the last (will get too repetitive). Will only comment slight changes
 scene.onOverlapTile(SpriteKind.UpD, assets.tile`
         HitBoxD
     `, function on_overlap_tile2(sprite2: Sprite, location2: tiles.Location) {
+    //  defines a new function "on_overlap_2" with inputs "sprite2" and "location2" to perform actions with said variables
     
     if (controller.up.isPressed()) {
+        //  an if statement in which runs the next lines of code when a condition is met. In this case, if the up key is pressed
         sprites.destroy(sprite2)
     }
     
@@ -38,11 +57,15 @@ scene.onOverlapTile(SpriteKind.UpD, assets.tile`
     info.changeScoreBy(150)
     statusbar.value += 1
 })
+//  assigns the tile "HitBoxD" I created as the tile in which if the sprite overlaps it, it performs the code above.
+//  CODE FOR LANE 3 (HITS)
 scene.onOverlapTile(SpriteKind.DownF, assets.tile`
         HitBoxF
     `, function on_overlap_tile3(sprite3: Sprite, location3: tiles.Location) {
+    //  defines a new function "on_overlap_3" with inputs "sprite3" and "location3" to perform actions with said variables
     
     if (controller.down.isPressed()) {
+        //  an if statement in which runs the next lines of code when a condition is met. In this case, if the down key is pressed
         sprites.destroy(sprite3)
     }
     
@@ -54,11 +77,15 @@ scene.onOverlapTile(SpriteKind.DownF, assets.tile`
     info.changeScoreBy(150)
     statusbar.value += 1
 })
+//  assigns the tile "HitBoxF" I created as the tile in which if the sprite overlaps it, it performs the code above.
+//  CODE FOR LANE 4 (HITS)
 scene.onOverlapTile(SpriteKind.RightG, assets.tile`
         HitBoxG
     `, function on_overlap_tile4(sprite4: Sprite, location4: tiles.Location) {
+    //  defines a new function "on_overlap_4" with inputs "sprite4" and "location4" to perform actions with said variables
     
     if (controller.right.isPressed()) {
+        //  an if statement in which runs the next lines of code when a condition is met. In this case, if the right key is pressed
         sprites.destroy(sprite4)
     }
     
@@ -70,21 +97,33 @@ scene.onOverlapTile(SpriteKind.RightG, assets.tile`
     info.changeScoreBy(150)
     statusbar.value += 1
 })
+//  assigns the tile "HitBoxG" I created as the tile in which if the sprite overlaps it, it performs the code above.
+//  CODE FOR LANE 1 (MISSES)
 scene.onOverlapTile(SpriteKind.LeftS, assets.tile`
         GrayFillS
     `, function on_overlap_tile5(sprite5: Sprite, location5: tiles.Location) {
+    //  defines a new function "on_overlap_5" with inputs "sprite5" and "location5" to perform actions with said variables
     
+    //  new global variable defined "miss" so it can be called anywhere in the code
     miss += 1
+    //  changes the value of the "miss" variable by +1
     sprites.destroy(sprite5, effects.ashes, 500)
+    //  using the sprites function, destroys the sprite with an ashes effect with duration 500ms.
     statusbar.value += -2
+    //  using the stausbar function, decreases the player's HP value by -2
     count = 0
+    //  resets the combo "count" variable to 0
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convertToText(count))
     textSprite.setPosition(20, 20)
 })
+//  assigns the tile "GrayFillS" I created as the tile in which if the sprite overlaps it, it performs the code above.
+//  CODE FOR LANE 2 (MISSES)
+//  Code in the next sequences are the same as the last (will get too repetitive). Will only comment slight changes
 scene.onOverlapTile(SpriteKind.UpD, assets.tile`
         GrayFillD
     `, function on_overlap_tile6(sprite6: Sprite, location6: tiles.Location) {
+    //  defines a new function "on_overlap_6" with inputs "sprite6" and "location6" to perform actions with said variables
     
     miss += 1
     count = 0
@@ -94,9 +133,12 @@ scene.onOverlapTile(SpriteKind.UpD, assets.tile`
     sprites.destroy(sprite6, effects.ashes, 500)
     statusbar.value += -2
 })
+//  assigns the tile "GrayFillD" I created as the tile in which if the sprite overlaps it, it performs the code above.
+//  CODE FOR LANE 3 (MISSES)
 scene.onOverlapTile(SpriteKind.DownF, assets.tile`
         GrayFillF
     `, function on_overlap_tile7(sprite7: Sprite, location7: tiles.Location) {
+    //  defines a new function "on_overlap_7" with inputs "sprite7" and "location7" to perform actions with said variables
     
     miss += 1
     sprites.destroy(sprite7, effects.ashes, 500)
@@ -106,9 +148,12 @@ scene.onOverlapTile(SpriteKind.DownF, assets.tile`
     textSprite = textsprite.create(convertToText(count))
     textSprite.setPosition(20, 20)
 })
+//  assigns the tile "GrayFillF" I created as the tile in which if the sprite overlaps it, it performs the code above.
+//  CODE FOR LANE 4 (MISSES)
 scene.onOverlapTile(SpriteKind.RightG, assets.tile`
         GrayFillG
     `, function on_overlap_tile8(sprite8: Sprite, location8: tiles.Location) {
+    //  defines a new function "on_overlap_8" with inputs "sprite8" and "location8" to perform actions with said variables
     
     miss += 1
     count = 0
@@ -118,11 +163,17 @@ scene.onOverlapTile(SpriteKind.RightG, assets.tile`
     sprites.destroy(sprite8, effects.ashes, 500)
     statusbar.value += -2
 })
+//  assigns the tile "GrayFillG" I created as the tile in which if the sprite overlaps it, it performs the code above.
+//  SECTION 2: CREATING A HITBOX LIGHT UP EFFECT WHEN KEYS ARE PRESSED
+//  sets tilemap "TileMapDTrigger" I created 
 controller.up.onEvent(ControllerButtonEvent.Pressed, function on_up_pressed() {
+    //  defines the function "on_up_pressed"
     tiles.setCurrentTilemap(tilemap`
         TileMapDTrigger
     `)
 })
+//  using the controller function, sets the tile map to "TileMapDTrigger" when the up key is pressed
+//  this gives the illusion that the hitbox lights up when you press the up key
 controller.up.onEvent(ControllerButtonEvent.Released, function on_up_released() {
     tiles.setCurrentTilemap(tilemap`
         TileMapDefault
