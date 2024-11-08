@@ -2285,12 +2285,6 @@ def on_after218():
     DownF2.set_velocity(0, 125)
 timer.after(72120, on_after218)
 
-pause(1000)
-music.play(music.create_song(assets.song("""
-        Instead
-    """)),
-    music.PlaybackMode.UNTIL_DONE)
-
 # SECTION 5 GAME OVER OR GAME WIN
 
 # IF THEY WIN
@@ -2313,42 +2307,8 @@ def on_on_zero(status): # defines the function "on_on_zero" with "status" variab
     game.game_over(False) # using the game function, tells the system that this the player loses
 statusbars.on_zero(StatusBarKind.health, on_on_zero) # performs the above code when the status bar HP reaches 0. 
 
-def on_on_update():
-    global miss, wait
-    if controller.left.is_pressed():
-        if LeftS2.tile_kind_at(TileDirection.CENTER, assets.tile("""
-            HitBoxS
-        """)):
-            if wait == 0:
-                miss += 1
-                wait = 10
-            else:
-                wait += -1
-    if controller.up.is_pressed():
-        if UpD2.tile_kind_at(TileDirection.CENTER, assets.tile("""
-            HitBoxD
-        """)):
-            if wait == 0:
-                miss += 1
-                wait = 10
-            else:
-                wait += -1
-    if controller.right.is_pressed():
-        if DownF2.tile_kind_at(TileDirection.CENTER, assets.tile("""
-            HitBoxF
-        """)):
-            if wait == 0:
-                miss += 1
-                wait = 10
-            else:
-                wait += -1
-    if controller.down.is_pressed():
-        if RightG2.tile_kind_at(TileDirection.CENTER, assets.tile("""
-            HitBoxG
-        """)):
-            if wait == 0:
-                miss += 1
-                wait = 10
-            else:
-                wait += -1
-game.on_update(on_on_update)
+pause(1000) # using the pause function, waits 1000ms until it runs the next line of code.
+music.play(music.create_song(assets.song("""
+        Instead
+    """)),
+    music.PlaybackMode.UNTIL_DONE) # using the music function, plays the asset "instead" that I made until it is finished playing.

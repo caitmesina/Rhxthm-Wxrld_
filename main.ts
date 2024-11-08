@@ -2079,10 +2079,6 @@ timer.after(72120, function on_after218() {
     tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
     DownF2.setVelocity(0, 125)
 })
-pause(1000)
-music.play(music.createSong(assets.song`
-        Instead
-    `), music.PlaybackMode.UntilDone)
 //  SECTION 5 GAME OVER OR GAME WIN
 //  IF THEY WIN
 //  performs the above code IF player wins (finishes the whole song without getting to 0HP)
@@ -2109,66 +2105,8 @@ statusbars.onZero(StatusBarKind.Health, function on_on_zero(status: StatusBarSpr
     game.gameOver(false)
 })
 //  performs the above code when the status bar HP reaches 0. 
-game.onUpdate(function on_on_update() {
-    
-    if (controller.left.isPressed()) {
-        if (LeftS2.tileKindAt(TileDirection.Center, assets.tile`
-            HitBoxS
-        `)) {
-            if (wait == 0) {
-                miss += 1
-                wait = 10
-            } else {
-                wait += -1
-            }
-            
-        }
-        
-    }
-    
-    if (controller.up.isPressed()) {
-        if (UpD2.tileKindAt(TileDirection.Center, assets.tile`
-            HitBoxD
-        `)) {
-            if (wait == 0) {
-                miss += 1
-                wait = 10
-            } else {
-                wait += -1
-            }
-            
-        }
-        
-    }
-    
-    if (controller.right.isPressed()) {
-        if (DownF2.tileKindAt(TileDirection.Center, assets.tile`
-            HitBoxF
-        `)) {
-            if (wait == 0) {
-                miss += 1
-                wait = 10
-            } else {
-                wait += -1
-            }
-            
-        }
-        
-    }
-    
-    if (controller.down.isPressed()) {
-        if (RightG2.tileKindAt(TileDirection.Center, assets.tile`
-            HitBoxG
-        `)) {
-            if (wait == 0) {
-                miss += 1
-                wait = 10
-            } else {
-                wait += -1
-            }
-            
-        }
-        
-    }
-    
-})
+pause(1000)
+//  using the pause function, waits 1000ms until it runs the next line of code.
+music.play(music.createSong(assets.song`
+        Instead
+    `), music.PlaybackMode.UntilDone)
