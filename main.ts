@@ -8,10 +8,10 @@ namespace SpriteKind {
 
 scene.onOverlapTile(SpriteKind.LeftS, assets.tile`
         HitBoxS
-    `, function on_overlap_tile4(sprite5: Sprite, location5: tiles.Location) {
+    `, function on_overlap_tile(sprite: Sprite, location: tiles.Location) {
     
     if (controller.left.isPressed()) {
-        sprites.destroy(sprite5)
+        sprites.destroy(sprite)
     }
     
     hits += 1
@@ -24,10 +24,10 @@ scene.onOverlapTile(SpriteKind.LeftS, assets.tile`
 })
 scene.onOverlapTile(SpriteKind.UpD, assets.tile`
         HitBoxD
-    `, function on_overlap_tile8(sprite8: Sprite, location8: tiles.Location) {
+    `, function on_overlap_tile2(sprite2: Sprite, location2: tiles.Location) {
     
     if (controller.up.isPressed()) {
-        sprites.destroy(sprite8)
+        sprites.destroy(sprite2)
     }
     
     hits += 1
@@ -40,10 +40,10 @@ scene.onOverlapTile(SpriteKind.UpD, assets.tile`
 })
 scene.onOverlapTile(SpriteKind.DownF, assets.tile`
         HitBoxF
-    `, function on_overlap_tile6(sprite: Sprite, location: tiles.Location) {
+    `, function on_overlap_tile3(sprite3: Sprite, location3: tiles.Location) {
     
     if (controller.down.isPressed()) {
-        sprites.destroy(sprite)
+        sprites.destroy(sprite3)
     }
     
     hits += 1
@@ -56,10 +56,10 @@ scene.onOverlapTile(SpriteKind.DownF, assets.tile`
 })
 scene.onOverlapTile(SpriteKind.RightG, assets.tile`
         HitBoxG
-    `, function on_overlap_tile3(sprite6: Sprite, location6: tiles.Location) {
+    `, function on_overlap_tile4(sprite4: Sprite, location4: tiles.Location) {
     
     if (controller.right.isPressed()) {
-        sprites.destroy(sprite6)
+        sprites.destroy(sprite4)
     }
     
     hits += 1
@@ -72,10 +72,10 @@ scene.onOverlapTile(SpriteKind.RightG, assets.tile`
 })
 scene.onOverlapTile(SpriteKind.LeftS, assets.tile`
         GrayFillS
-    `, function on_overlap_tile2(sprite2: Sprite, location2: tiles.Location) {
+    `, function on_overlap_tile5(sprite5: Sprite, location5: tiles.Location) {
     
     miss += 1
-    sprites.destroy(sprite2, effects.ashes, 500)
+    sprites.destroy(sprite5, effects.ashes, 500)
     statusbar.value += -2
     count = 0
     sprites.destroy(textSprite)
@@ -84,22 +84,22 @@ scene.onOverlapTile(SpriteKind.LeftS, assets.tile`
 })
 scene.onOverlapTile(SpriteKind.UpD, assets.tile`
         GrayFillD
-    `, function on_overlap_tile5(sprite4: Sprite, location4: tiles.Location) {
+    `, function on_overlap_tile6(sprite6: Sprite, location6: tiles.Location) {
     
     miss += 1
     count = 0
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convertToText(count))
     textSprite.setPosition(20, 20)
-    sprites.destroy(sprite4, effects.ashes, 500)
+    sprites.destroy(sprite6, effects.ashes, 500)
     statusbar.value += -2
 })
 scene.onOverlapTile(SpriteKind.DownF, assets.tile`
         GrayFillF
-    `, function on_overlap_tile(sprite3: Sprite, location3: tiles.Location) {
+    `, function on_overlap_tile7(sprite7: Sprite, location7: tiles.Location) {
     
     miss += 1
-    sprites.destroy(sprite3, effects.ashes, 500)
+    sprites.destroy(sprite7, effects.ashes, 500)
     statusbar.value += -2
     count = 0
     sprites.destroy(textSprite)
@@ -108,14 +108,14 @@ scene.onOverlapTile(SpriteKind.DownF, assets.tile`
 })
 scene.onOverlapTile(SpriteKind.RightG, assets.tile`
         GrayFillG
-    `, function on_overlap_tile7(sprite7: Sprite, location7: tiles.Location) {
+    `, function on_overlap_tile8(sprite8: Sprite, location8: tiles.Location) {
     
     miss += 1
     count = 0
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convertToText(count))
     textSprite.setPosition(20, 20)
-    sprites.destroy(sprite7, effects.ashes, 500)
+    sprites.destroy(sprite8, effects.ashes, 500)
     statusbar.value += -2
 })
 controller.up.onEvent(ControllerButtonEvent.Pressed, function on_up_pressed() {

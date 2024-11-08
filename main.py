@@ -10,10 +10,10 @@ class SpriteKind:
 
 
 
-def on_overlap_tile4(sprite5, location5):
+def on_overlap_tile(sprite, location):
     global hits, count, textSprite
     if controller.left.is_pressed():
-        sprites.destroy(sprite5)
+        sprites.destroy(sprite)
     hits += 1
     count += 1
     sprites.destroy(textSprite)
@@ -25,12 +25,12 @@ scene.on_overlap_tile(SpriteKind.LeftS,
     assets.tile("""
         HitBoxS
     """),
-    on_overlap_tile4)
+    on_overlap_tile)
 
-def on_overlap_tile8(sprite8, location8):
+def on_overlap_tile2(sprite2, location2):
     global hits, count, textSprite
     if controller.up.is_pressed():
-        sprites.destroy(sprite8)
+        sprites.destroy(sprite2)
     hits += 1
     count += 1
     sprites.destroy(textSprite)
@@ -42,12 +42,12 @@ scene.on_overlap_tile(SpriteKind.UpD,
     assets.tile("""
         HitBoxD
     """),
-    on_overlap_tile8)
+    on_overlap_tile2)
 
-def on_overlap_tile6(sprite, location):
+def on_overlap_tile3(sprite3, location3):
     global hits, count, textSprite
     if controller.down.is_pressed():
-        sprites.destroy(sprite)
+        sprites.destroy(sprite3)
     hits += 1
     count += 1
     sprites.destroy(textSprite)
@@ -59,12 +59,12 @@ scene.on_overlap_tile(SpriteKind.DownF,
     assets.tile("""
         HitBoxF
     """),
-    on_overlap_tile6)
+    on_overlap_tile3)
 
-def on_overlap_tile3(sprite6, location6):
+def on_overlap_tile4(sprite4, location4):
     global hits, count, textSprite
     if controller.right.is_pressed():
-        sprites.destroy(sprite6)
+        sprites.destroy(sprite4)
     hits += 1
     count += 1
     sprites.destroy(textSprite)
@@ -76,12 +76,12 @@ scene.on_overlap_tile(SpriteKind.RightG,
     assets.tile("""
         HitBoxG
     """),
-    on_overlap_tile3)
+    on_overlap_tile4)
 
-def on_overlap_tile2(sprite2, location2):
+def on_overlap_tile5(sprite5, location5):
     global miss, count, textSprite
     miss += 1
-    sprites.destroy(sprite2, effects.ashes, 500)
+    sprites.destroy(sprite5, effects.ashes, 500)
     statusbar.value += -2
     count = 0
     sprites.destroy(textSprite)
@@ -91,27 +91,27 @@ scene.on_overlap_tile(SpriteKind.LeftS,
     assets.tile("""
         GrayFillS
     """),
-    on_overlap_tile2)
+    on_overlap_tile5)
 
-def on_overlap_tile5(sprite4, location4):
+def on_overlap_tile6(sprite6, location6):
     global miss, count, textSprite
     miss += 1
     count = 0
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convert_to_text(count))
     textSprite.set_position(20, 20)
-    sprites.destroy(sprite4, effects.ashes, 500)
+    sprites.destroy(sprite6, effects.ashes, 500)
     statusbar.value += -2
 scene.on_overlap_tile(SpriteKind.UpD,
     assets.tile("""
         GrayFillD
     """),
-    on_overlap_tile5)
+    on_overlap_tile6)
 
-def on_overlap_tile(sprite3, location3):
+def on_overlap_tile7(sprite7, location7):
     global miss, count, textSprite
     miss += 1
-    sprites.destroy(sprite3, effects.ashes, 500)
+    sprites.destroy(sprite7, effects.ashes, 500)
     statusbar.value += -2
     count = 0
     sprites.destroy(textSprite)
@@ -121,22 +121,22 @@ scene.on_overlap_tile(SpriteKind.DownF,
     assets.tile("""
         GrayFillF
     """),
-    on_overlap_tile)
+    on_overlap_tile7)
 
-def on_overlap_tile7(sprite7, location7):
+def on_overlap_tile8(sprite8, location8):
     global miss, count, textSprite
     miss += 1
     count = 0
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convert_to_text(count))
     textSprite.set_position(20, 20)
-    sprites.destroy(sprite7, effects.ashes, 500)
+    sprites.destroy(sprite8, effects.ashes, 500)
     statusbar.value += -2
 scene.on_overlap_tile(SpriteKind.RightG,
     assets.tile("""
         GrayFillG
     """),
-    on_overlap_tile7)
+    on_overlap_tile8)
 
 def on_up_pressed():
     tiles.set_current_tilemap(tilemap("""
@@ -236,6 +236,7 @@ textSprite.set_position(20, 20)
 combotext = textsprite.create("COMBO")
 combotext.set_position(20, 11)
 pause(2000)
+
 # intro
 
 def on_after():
