@@ -1,86 +1,14 @@
 @namespace
+
+# This class defines the sprites "RightG" "LeftS" "DownF" and "UpD" as objects where I can create a sprite asset for each one.
+
 class SpriteKind:
     RightG = SpriteKind.create()
     LeftS = SpriteKind.create()
     DownF = SpriteKind.create()
     UpD = SpriteKind.create()
 
-def on_up_pressed():
-    tiles.set_current_tilemap(tilemap("""
-        TileMapDTrigger
-    """))
-controller.up.on_event(ControllerButtonEvent.PRESSED, on_up_pressed)
 
-def on_overlap_tile(sprite3, location3):
-    global miss, count, textSprite
-    miss += 1
-    sprites.destroy(sprite3, effects.ashes, 500)
-    statusbar.value += -2
-    count = 0
-    sprites.destroy(textSprite)
-    textSprite = textsprite.create(convert_to_text(count))
-    textSprite.set_position(20, 20)
-scene.on_overlap_tile(SpriteKind.DownF,
-    assets.tile("""
-        GrayFillF
-    """),
-    on_overlap_tile)
-
-def on_overlap_tile2(sprite2, location2):
-    global miss, count, textSprite
-    miss += 1
-    sprites.destroy(sprite2, effects.ashes, 500)
-    statusbar.value += -2
-    count = 0
-    sprites.destroy(textSprite)
-    textSprite = textsprite.create(convert_to_text(count))
-    textSprite.set_position(20, 20)
-scene.on_overlap_tile(SpriteKind.LeftS,
-    assets.tile("""
-        GrayFillS
-    """),
-    on_overlap_tile2)
-
-def on_overlap_tile3(sprite6, location6):
-    global hits, count, textSprite
-    if controller.right.is_pressed():
-        sprites.destroy(sprite6)
-    hits += 1
-    count += 1
-    sprites.destroy(textSprite)
-    textSprite = textsprite.create(convert_to_text(count))
-    textSprite.set_position(20, 20)
-    info.change_score_by(150)
-    statusbar.value += 1
-scene.on_overlap_tile(SpriteKind.RightG,
-    assets.tile("""
-        HitBoxG
-    """),
-    on_overlap_tile3)
-
-def on_down_released():
-    tiles.set_current_tilemap(tilemap("""
-        TileMapDefault
-    """))
-controller.down.on_event(ControllerButtonEvent.RELEASED, on_down_released)
-
-def on_left_pressed():
-    tiles.set_current_tilemap(tilemap("""
-        TileMapSTrigger
-    """))
-controller.left.on_event(ControllerButtonEvent.PRESSED, on_left_pressed)
-
-def on_right_released():
-    tiles.set_current_tilemap(tilemap("""
-        TileMapDefault
-    """))
-controller.right.on_event(ControllerButtonEvent.RELEASED, on_right_released)
-
-def on_left_released():
-    tiles.set_current_tilemap(tilemap("""
-        TileMapDefault
-    """))
-controller.left.on_event(ControllerButtonEvent.RELEASED, on_left_released)
 
 def on_overlap_tile4(sprite5, location5):
     global hits, count, textSprite
@@ -99,42 +27,22 @@ scene.on_overlap_tile(SpriteKind.LeftS,
     """),
     on_overlap_tile4)
 
-def on_on_zero(status):
-    global BlackBackground
-    music.stop_all_sounds()
-    BlackBackground = sprites.create(assets.image("""
-        GameBackground
-    """), SpriteKind.player)
-    BlackBackground.z = 5
-    game.game_over(False)
-statusbars.on_zero(StatusBarKind.health, on_on_zero)
-
-def on_right_pressed():
-    tiles.set_current_tilemap(tilemap("""
-        TileMapDefault0
-    """))
-controller.right.on_event(ControllerButtonEvent.PRESSED, on_right_pressed)
-
-def on_overlap_tile5(sprite4, location4):
-    global miss, count, textSprite
-    miss += 1
-    count = 0
+def on_overlap_tile8(sprite8, location8):
+    global hits, count, textSprite
+    if controller.up.is_pressed():
+        sprites.destroy(sprite8)
+    hits += 1
+    count += 1
     sprites.destroy(textSprite)
     textSprite = textsprite.create(convert_to_text(count))
     textSprite.set_position(20, 20)
-    sprites.destroy(sprite4, effects.ashes, 500)
-    statusbar.value += -2
+    info.change_score_by(150)
+    statusbar.value += 1
 scene.on_overlap_tile(SpriteKind.UpD,
     assets.tile("""
-        GrayFillD
+        HitBoxD
     """),
-    on_overlap_tile5)
-
-def on_up_released():
-    tiles.set_current_tilemap(tilemap("""
-        TileMapDefault
-    """))
-controller.up.on_event(ControllerButtonEvent.RELEASED, on_up_released)
+    on_overlap_tile8)
 
 def on_overlap_tile6(sprite, location):
     global hits, count, textSprite
@@ -153,11 +61,67 @@ scene.on_overlap_tile(SpriteKind.DownF,
     """),
     on_overlap_tile6)
 
-def on_down_pressed():
-    tiles.set_current_tilemap(tilemap("""
-        TileMapFTrigger
-    """))
-controller.down.on_event(ControllerButtonEvent.PRESSED, on_down_pressed)
+def on_overlap_tile3(sprite6, location6):
+    global hits, count, textSprite
+    if controller.right.is_pressed():
+        sprites.destroy(sprite6)
+    hits += 1
+    count += 1
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convert_to_text(count))
+    textSprite.set_position(20, 20)
+    info.change_score_by(150)
+    statusbar.value += 1
+scene.on_overlap_tile(SpriteKind.RightG,
+    assets.tile("""
+        HitBoxG
+    """),
+    on_overlap_tile3)
+
+def on_overlap_tile2(sprite2, location2):
+    global miss, count, textSprite
+    miss += 1
+    sprites.destroy(sprite2, effects.ashes, 500)
+    statusbar.value += -2
+    count = 0
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convert_to_text(count))
+    textSprite.set_position(20, 20)
+scene.on_overlap_tile(SpriteKind.LeftS,
+    assets.tile("""
+        GrayFillS
+    """),
+    on_overlap_tile2)
+
+def on_overlap_tile5(sprite4, location4):
+    global miss, count, textSprite
+    miss += 1
+    count = 0
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convert_to_text(count))
+    textSprite.set_position(20, 20)
+    sprites.destroy(sprite4, effects.ashes, 500)
+    statusbar.value += -2
+scene.on_overlap_tile(SpriteKind.UpD,
+    assets.tile("""
+        GrayFillD
+    """),
+    on_overlap_tile5)
+
+def on_overlap_tile(sprite3, location3):
+    global miss, count, textSprite
+    miss += 1
+    sprites.destroy(sprite3, effects.ashes, 500)
+    statusbar.value += -2
+    count = 0
+    sprites.destroy(textSprite)
+    textSprite = textsprite.create(convert_to_text(count))
+    textSprite.set_position(20, 20)
+scene.on_overlap_tile(SpriteKind.DownF,
+    assets.tile("""
+        GrayFillF
+    """),
+    on_overlap_tile)
 
 def on_overlap_tile7(sprite7, location7):
     global miss, count, textSprite
@@ -174,32 +138,63 @@ scene.on_overlap_tile(SpriteKind.RightG,
     """),
     on_overlap_tile7)
 
-def on_overlap_tile8(sprite8, location8):
-    global hits, count, textSprite
-    if controller.up.is_pressed():
-        sprites.destroy(sprite8)
-    hits += 1
-    count += 1
-    sprites.destroy(textSprite)
-    textSprite = textsprite.create(convert_to_text(count))
-    textSprite.set_position(20, 20)
-    info.change_score_by(150)
-    statusbar.value += 1
-scene.on_overlap_tile(SpriteKind.UpD,
-    assets.tile("""
-        HitBoxD
-    """),
-    on_overlap_tile8)
+def on_up_pressed():
+    tiles.set_current_tilemap(tilemap("""
+        TileMapDTrigger
+    """))
+controller.up.on_event(ControllerButtonEvent.PRESSED, on_up_pressed)
 
-wait = 0
+def on_up_released():
+    tiles.set_current_tilemap(tilemap("""
+        TileMapDefault
+    """))
+controller.up.on_event(ControllerButtonEvent.RELEASED, on_up_released)
+
+def on_down_pressed():
+    tiles.set_current_tilemap(tilemap("""
+        TileMapFTrigger
+    """))
+controller.down.on_event(ControllerButtonEvent.PRESSED, on_down_pressed)
+
+def on_down_released():
+    tiles.set_current_tilemap(tilemap("""
+        TileMapDefault
+    """))
+controller.down.on_event(ControllerButtonEvent.RELEASED, on_down_released)
+
+def on_left_pressed():
+    tiles.set_current_tilemap(tilemap("""
+        TileMapSTrigger
+    """))
+controller.left.on_event(ControllerButtonEvent.PRESSED, on_left_pressed)
+
+def on_left_released():
+    tiles.set_current_tilemap(tilemap("""
+        TileMapDefault
+    """))
+controller.left.on_event(ControllerButtonEvent.RELEASED, on_left_released)
+
+def on_right_pressed():
+    tiles.set_current_tilemap(tilemap("""
+        TileMapDefault0
+    """))
+controller.right.on_event(ControllerButtonEvent.PRESSED, on_right_pressed)
+
+def on_right_released():
+    tiles.set_current_tilemap(tilemap("""
+        TileMapDefault
+    """))
+controller.right.on_event(ControllerButtonEvent.RELEASED, on_right_released)
+
 BlackBackground: Sprite = None
+wait = 0
 miss = 0
 hits = 0
+count = 0
 DownF2: Sprite = None
 UpD2: Sprite = None
 RightG2: Sprite = None
 LeftS2: Sprite = None
-count = 0
 textSprite: TextSprite = None
 statusbar: StatusBarSprite = None
 MakeyMakey.set_simulator_keymap(MakeyMakey.PlayerNumber.ONE,
@@ -2267,6 +2262,16 @@ music.play(music.create_song(assets.song("""
         Instead
     """)),
     music.PlaybackMode.UNTIL_DONE)
+
+def on_on_zero(status):
+    global BlackBackground
+    music.stop_all_sounds()
+    BlackBackground = sprites.create(assets.image("""
+        GameBackground
+    """), SpriteKind.player)
+    BlackBackground.z = 5
+    game.game_over(False)
+statusbars.on_zero(StatusBarKind.health, on_on_zero)
 
 def on_on_update():
     global miss, wait
