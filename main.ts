@@ -174,11 +174,16 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function on_up_pressed() {
 })
 //  using the controller function, sets the tile map to "TileMapDTrigger" when the up key is pressed
 //  this gives the illusion that the hitbox lights up when you press the up key
+//  sets tilemap "TileMapDefault", which is the default tilemap when no keys are pressed.
 controller.up.onEvent(ControllerButtonEvent.Released, function on_up_released() {
+    //  defines the function "on_up_released"
     tiles.setCurrentTilemap(tilemap`
         TileMapDefault
     `)
 })
+//  using the controller function, sets the tile map to "TileMapDefault" when the up key is released
+//  this gives the illusion that the hitbox turns back to normal when you release the up key
+//  Code in the next sequences are the same as the last (will get too repetitive). The only difference is what key is pressed and released, as well as the corresponding TileMaps
 controller.down.onEvent(ControllerButtonEvent.Pressed, function on_down_pressed() {
     tiles.setCurrentTilemap(tilemap`
         TileMapFTrigger
@@ -209,17 +214,22 @@ controller.right.onEvent(ControllerButtonEvent.Released, function on_right_relea
         TileMapDefault
     `)
 })
-let BlackBackground : Sprite = null
+//  SECTION 3 ON GAME START
+//  sets all the following variables to 0 for the start of the game
 let wait = 0
 let miss = 0
 let hits = 0
 let count = 0
+//  sets all of the following sprites to invisible for the start of the game
+let BlackBackground : Sprite = null
 let DownF2 : Sprite = null
 let UpD2 : Sprite = null
 let RightG2 : Sprite = null
 let LeftS2 : Sprite = null
 let textSprite : TextSprite = null
 let statusbar : StatusBarSprite = null
+//  using the MakeyMakey function extension, remaps the Makecode Arcade's default keys into new key bindings.
+//  REFERENCE MAKER
 MakeyMakey.setSimulatorKeymap(MakeyMakey.PlayerNumber.ONE, MakeyMakey.MakeyMakeyKey.D, MakeyMakey.MakeyMakeyKey.F, MakeyMakey.MakeyMakeyKey.S, MakeyMakey.MakeyMakeyKey.G, MakeyMakey.MakeyMakeyKey.A, MakeyMakey.MakeyMakeyKey.SPACE)
 scene.setBackgroundImage(assets.image`
     TitleScreen

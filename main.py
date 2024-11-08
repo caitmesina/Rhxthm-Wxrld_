@@ -168,12 +168,14 @@ def on_up_pressed(): # defines the function "on_up_pressed"
 controller.up.on_event(ControllerButtonEvent.PRESSED, on_up_pressed) # using the controller function, sets the tile map to "TileMapDTrigger" when the up key is pressed
 # this gives the illusion that the hitbox lights up when you press the up key
 
-
-def on_up_released():
+def on_up_released(): # defines the function "on_up_released"
     tiles.set_current_tilemap(tilemap("""
         TileMapDefault
-    """))
-controller.up.on_event(ControllerButtonEvent.RELEASED, on_up_released)
+    """)) # sets tilemap "TileMapDefault", which is the default tilemap when no keys are pressed.
+controller.up.on_event(ControllerButtonEvent.RELEASED, on_up_released) # using the controller function, sets the tile map to "TileMapDefault" when the up key is released
+# this gives the illusion that the hitbox turns back to normal when you release the up key
+
+# Code in the next sequences are the same as the last (will get too repetitive). The only difference is what key is pressed and released, as well as the corresponding TileMaps
 
 def on_down_pressed():
     tiles.set_current_tilemap(tilemap("""
@@ -211,17 +213,23 @@ def on_right_released():
     """))
 controller.right.on_event(ControllerButtonEvent.RELEASED, on_right_released)
 
-BlackBackground: Sprite = None
+# SECTION 3 ON GAME START
+
+# sets all the following variables to 0 for the start of the game
 wait = 0
 miss = 0
 hits = 0
 count = 0
+# sets all of the following sprites to invisible for the start of the game
+BlackBackground: Sprite = None
 DownF2: Sprite = None
 UpD2: Sprite = None
 RightG2: Sprite = None
 LeftS2: Sprite = None
 textSprite: TextSprite = None
 statusbar: StatusBarSprite = None
+# using the MakeyMakey function extension, remaps the Makecode Arcade's default keys into new key bindings.
+# REFERENCE MAKER
 MakeyMakey.set_simulator_keymap(MakeyMakey.PlayerNumber.ONE,
     MakeyMakey.MakeyMakeyKey.D,
     MakeyMakey.MakeyMakeyKey.F,
