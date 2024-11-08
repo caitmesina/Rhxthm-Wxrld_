@@ -231,34 +231,58 @@ let statusbar : StatusBarSprite = null
 //  using the MakeyMakey function extension, remaps the Makecode Arcade's default keys into new key bindings.
 //  REFERENCE MAKER
 MakeyMakey.setSimulatorKeymap(MakeyMakey.PlayerNumber.ONE, MakeyMakey.MakeyMakeyKey.D, MakeyMakey.MakeyMakeyKey.F, MakeyMakey.MakeyMakeyKey.S, MakeyMakey.MakeyMakeyKey.G, MakeyMakey.MakeyMakeyKey.A, MakeyMakey.MakeyMakeyKey.SPACE)
+//  remaps to UP key to the D key
+//  remaps the DOWN key to the F key
+//  remaps the LEFT key to the S key
+//  remaps the RIGHT key to the G key
+//  remaps the A gameboy button to the A key
+//  remaps the B gameboy button to the SPACE key
 scene.setBackgroundImage(assets.image`
     TitleScreen
 `)
+//  using the scene function, sets the background to the game logo I designed for the title screen.
 music.play(music.melodyPlayable(music.magicWand), music.PlaybackMode.UntilDone)
+//  using the music function, plays a short jingle agic_wand (made by MakeCode Arcade) until it is finished
 game.showLongText("Greetings! Welcome to Rhxthm Wxrld_!", DialogLayout.Bottom)
+//  using the game function, displayes a text with the string, positioned at the bottom of the screen
 game.showLongText("Press the S, D, F, G keys in time with the music!", DialogLayout.Bottom)
 game.showLongText("Coloured bars will fall and you must press the correct corresponding key!", DialogLayout.Bottom)
 game.showLongText("Try and aim your hits to when the coloured bars reach the white line.", DialogLayout.Bottom)
 game.showLongText("Good luck...", DialogLayout.Bottom)
 scene.setBackgroundColor(15)
+//  using the scene function, sets the background colour of the game to "15" or black.
 scene.setBackgroundImage(assets.image`
     GameBackground
 `)
+//  using the scene function, sets the background image to a game background asset I created.
 tiles.setCurrentTilemap(tilemap`
     TileMapDefault
 `)
+//  using the tiles function, sets the current tilemap to the "TileMapDefault" asset for the start of the game.
 statusbar = statusbars.create(6, 70, StatusBarKind.Health)
+//  using the status bar extension to create a HP bar, creates a status bar variable with width 6 and height 70. Also inputs the variable StatusBarKind.health to call.
 statusbar.max = 50
+//  sets maximum HP to 50
 statusbar.value = 25
+//  sets default HP to 25 when game starts
 statusbar.setBarBorder(1, 1)
+//  sets a white HP bar border with width 1x1 pixel
 statusbar.positionDirection(CollisionDirection.Right)
+//  sets status bar position to the right
 statusbar.setOffsetPadding(0, 15)
+//  sets status bar padding to 15px (15px from the right edge)
 statusbar.setLabel("HP")
+//  labels the HP bar, displaying the string of text
 textSprite = textsprite.create(convertToText(count))
+//  creates a textSprite, converting the combo "count" variable values into text. This serves as the basis of the Combo counter for players to see.
 textSprite.setPosition(20, 20)
+//  sets the above textSprite to position 20x20
 let combotext = textsprite.create("COMBO")
+//  creating a combotext variable, attributes the textsprite function to display the string "COMBO" so players know what the number is
 combotext.setPosition(20, 11)
+//  sets the above variable in position 20x11 on the screen
 pause(2000)
+//  using the pause function, creates a 2000ms pause before running the next lines of code
 //  intro
 timer.after(300, function on_after() {
     

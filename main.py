@@ -231,18 +231,18 @@ statusbar: StatusBarSprite = None
 # using the MakeyMakey function extension, remaps the Makecode Arcade's default keys into new key bindings.
 # REFERENCE MAKER
 MakeyMakey.set_simulator_keymap(MakeyMakey.PlayerNumber.ONE,
-    MakeyMakey.MakeyMakeyKey.D,
-    MakeyMakey.MakeyMakeyKey.F,
-    MakeyMakey.MakeyMakeyKey.S,
-    MakeyMakey.MakeyMakeyKey.G,
-    MakeyMakey.MakeyMakeyKey.A,
-    MakeyMakey.MakeyMakeyKey.SPACE)
+    MakeyMakey.MakeyMakeyKey.D, # remaps to UP key to the D key
+    MakeyMakey.MakeyMakeyKey.F, # remaps the DOWN key to the F key
+    MakeyMakey.MakeyMakeyKey.S, # remaps the LEFT key to the S key
+    MakeyMakey.MakeyMakeyKey.G, # remaps the RIGHT key to the G key
+    MakeyMakey.MakeyMakeyKey.A, # remaps the A gameboy button to the A key
+    MakeyMakey.MakeyMakeyKey.SPACE) # remaps the B gameboy button to the SPACE key
 scene.set_background_image(assets.image("""
     TitleScreen
-"""))
+""")) # using the scene function, sets the background to the game logo I designed for the title screen.
 music.play(music.melody_playable(music.magic_wand),
-    music.PlaybackMode.UNTIL_DONE)
-game.show_long_text("Greetings! Welcome to Rhxthm Wxrld_!", DialogLayout.BOTTOM)
+    music.PlaybackMode.UNTIL_DONE) # using the music function, plays a short jingle agic_wand (made by MakeCode Arcade) until it is finished
+game.show_long_text("Greetings! Welcome to Rhxthm Wxrld_!", DialogLayout.BOTTOM) # using the game function, displayes a text with the string, positioned at the bottom of the screen
 game.show_long_text("Press the S, D, F, G keys in time with the music!",
     DialogLayout.BOTTOM)
 game.show_long_text("Coloured bars will fall and you must press the correct corresponding key!",
@@ -250,25 +250,25 @@ game.show_long_text("Coloured bars will fall and you must press the correct corr
 game.show_long_text("Try and aim your hits to when the coloured bars reach the white line.",
     DialogLayout.BOTTOM)
 game.show_long_text("Good luck...", DialogLayout.BOTTOM)
-scene.set_background_color(15)
+scene.set_background_color(15) # using the scene function, sets the background colour of the game to "15" or black.
 scene.set_background_image(assets.image("""
     GameBackground
-"""))
+""")) # using the scene function, sets the background image to a game background asset I created.
 tiles.set_current_tilemap(tilemap("""
     TileMapDefault
-"""))
-statusbar = statusbars.create(6, 70, StatusBarKind.health)
-statusbar.max = 50
-statusbar.value = 25
-statusbar.set_bar_border(1, 1)
-statusbar.position_direction(CollisionDirection.RIGHT)
-statusbar.set_offset_padding(0, 15)
-statusbar.set_label("HP")
-textSprite = textsprite.create(convert_to_text(count))
-textSprite.set_position(20, 20)
-combotext = textsprite.create("COMBO")
-combotext.set_position(20, 11)
-pause(2000)
+""")) # using the tiles function, sets the current tilemap to the "TileMapDefault" asset for the start of the game.
+statusbar = statusbars.create(6, 70, StatusBarKind.health) # using the status bar extension to create a HP bar, creates a status bar variable with width 6 and height 70. Also inputs the variable StatusBarKind.health to call.
+statusbar.max = 50 # sets maximum HP to 50
+statusbar.value = 25 # sets default HP to 25 when game starts
+statusbar.set_bar_border(1, 1) # sets a white HP bar border with width 1x1 pixel
+statusbar.position_direction(CollisionDirection.RIGHT) # sets status bar position to the right
+statusbar.set_offset_padding(0, 15) # sets status bar padding to 15px (15px from the right edge)
+statusbar.set_label("HP") # labels the HP bar, displaying the string of text
+textSprite = textsprite.create(convert_to_text(count)) # creates a textSprite, converting the combo "count" variable values into text. This serves as the basis of the Combo counter for players to see.
+textSprite.set_position(20, 20) # sets the above textSprite to position 20x20
+combotext = textsprite.create("COMBO") # creating a combotext variable, attributes the textsprite function to display the string "COMBO" so players know what the number is
+combotext.set_position(20, 11) # sets the above variable in position 20x11 on the screen
+pause(2000) # using the pause function, creates a 2000ms pause before running the next lines of code
 
 # intro
 
