@@ -270,34 +270,38 @@ combotext = textsprite.create("COMBO") # creating a combotext variable, attribut
 combotext.set_position(20, 11) # sets the above variable in position 20x11 on the screen
 pause(2000) # using the pause function, creates a 2000ms pause before running the next lines of code
 
-# intro
+# SECTION 4 THE NOTES
 
-def on_after():
-    global LeftS2
+# INTRODUCTION RIFF 1
+
+def on_after(): # defines the function "on_after"
+    global LeftS2 # creates a new global variable "LeftS2"
     LeftS2 = sprites.create(assets.image("""
         RedBarImage
-    """), SpriteKind.LeftS)
-    tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
-    LeftS2.set_velocity(0, 125)
-timer.after(300, on_after)
+    """), SpriteKind.LeftS) # assigns asset "RedBarImage" i created to the "Lefts2" variable
+    tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0)) # using the tiles function, places the LeftS2 sprite in column 3, row 0 (Lane 1, above the screen)
+    LeftS2.set_velocity(0, 125) # sets LeftS2 at a velocity of 125. This will make it fall from top to bottom
+timer.after(300, on_after) # using the timer function, performs the above code after 300ms
 
-def on_after2():
-    global RightG2
+def on_after2(): # defines the function "on_after2"
+    global RightG2 # creates a new global variable "RightG2"
     RightG2 = sprites.create(assets.image("""
         YellowBarImage
-    """), SpriteKind.RightG)
-    tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
-    RightG2.set_velocity(0, 125)
-timer.after(500, on_after2)
+    """), SpriteKind.RightG) # assigns asset "YellowBarImage" i created to the "RightG2" variable
+    tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0)) # using the tiles function, places the RightG2 sprite in column 6, row 0 (Lane 4, above the screen)
+    RightG2.set_velocity(0, 125) # sets RightG2 at a velocity of 125. This will make it fall from top to bottom
+timer.after(500, on_after2) # using the timer function, performs the above code after 500ms
 
-def on_after3():
+# Code in the next sequences are the same as the last (will get too repetitive). Will only comment small changes
+
+def on_after3(): # defines the function "on_after3" etc.
     global LeftS2
     LeftS2 = sprites.create(assets.image("""
         RedBarImage
     """), SpriteKind.LeftS)
     tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
     LeftS2.set_velocity(0, 125)
-timer.after(700, on_after3)
+timer.after(700, on_after3) # using the timer function, performs the above code after 700ms
 
 def on_after4():
     global RightG2
@@ -306,16 +310,16 @@ def on_after4():
     """), SpriteKind.RightG)
     tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
     RightG2.set_velocity(0, 125)
-timer.after(900, on_after4)
+timer.after(900, on_after4) # using the timer function, performs the above code after 900ms
 
 def on_after5():
-    global UpD2
+    global UpD2 # creates a new global variable "UpD2"
     UpD2 = sprites.create(assets.image("""
         BlueBarImage
-    """), SpriteKind.UpD)
-    tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
+    """), SpriteKind.UpD) # assigns asset "BlueBarImage" i created to the "UpD2" variable
+    tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))  # using the tiles function, places the UpD2 sprite in column 4, row 0 (Lane 2, above the screen)
     UpD2.set_velocity(0, 125)
-timer.after(1250, on_after5)
+timer.after(1250, on_after5) # using the timer function, performs the above code after 1250ms
 
 def on_after6():
     global UpD2
@@ -324,16 +328,16 @@ def on_after6():
     """), SpriteKind.UpD)
     tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
     UpD2.set_velocity(0, 125)
-timer.after(1450, on_after6)
+timer.after(1450, on_after6) # using the timer function, performs the above code after 1450ms
 
 def on_after7():
-    global DownF2
+    global DownF2 # creates a new global variable "DownF2"
     DownF2 = sprites.create(assets.image("""
         GreenBarImage
-    """), SpriteKind.DownF)
-    tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
+    """), SpriteKind.DownF) # assigns asset "GreenBarImage" i created to the "DownF2" variable
+    tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0)) # using the tiles function, places the DownFw sprite in column 5, row 0 (Lane 3, above the screen)
     DownF2.set_velocity(0, 125)
-timer.after(1650, on_after7)
+timer.after(1650, on_after7) # using the timer function, performs the above code after 1650ms
 
 def on_after8():
     global UpD2
@@ -342,7 +346,7 @@ def on_after8():
     """), SpriteKind.UpD)
     tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
     UpD2.set_velocity(0, 125)
-timer.after(2000, on_after8)
+timer.after(2000, on_after8) # using the timer function, performs the above code after 2000ms etc.
 
 def on_after9():
     global UpD2
@@ -390,7 +394,7 @@ def on_after13():
     RightG2.z = -1
 timer.after(3150, on_after13)
 
-# intro riff 2
+# INTRODUCTION RIFF 2
 
 def on_after14():
     global LeftS2
@@ -509,7 +513,7 @@ def on_after26():
     RightG2.set_velocity(0, 125)
 timer.after(6150, on_after26)
 
-# intro riff repeat 1
+# INTRODUCTION RIFF REPEAT 1
 
 def on_after27():
     global LeftS2
@@ -628,7 +632,7 @@ def on_after39():
     RightG2.set_velocity(0, 125)
 timer.after(9200, on_after39)
 
-# intro riff repeat 2
+# INTRODUCTION RIFF REPEAT 2
 
 def on_after40():
     global LeftS2
@@ -729,7 +733,7 @@ def on_after50():
     DownF2.set_velocity(0, 125)
 timer.after(11800, on_after50)
 
-# verse 1 "you stare at me like im brain dead"
+# VERSE 1 LINE 1 "you stare at me like i'm brain dead"
 
 def on_after51():
     global LeftS2
@@ -803,7 +807,7 @@ def on_after58():
     LeftS2.set_velocity(0, 125)
 timer.after(16050, on_after58)
 
-# verse 1 "dr bad news came with meds"
+# VERSE 1 LINE 2 "d.r bad news came with meds"
 
 def on_after59():
     global DownF2
@@ -868,7 +872,7 @@ def on_after65():
     RightG2.set_velocity(0, 125)
 timer.after(21375, on_after65)
 
-# verse 1 "think i'm suffocating underwater bad enough"
+# VERSE 1 LINE 3 "think i'm suffocating underwater bad enough"
 
 def on_after66():
     global LeftS2
@@ -987,7 +991,7 @@ def on_after78():
     DownF2.set_velocity(0, 125)
 timer.after(26250, on_after78)
 
-# verse 1 "empty promises and lies are made with deeper cuts"
+# VERSE 1 LINE 4 "empty promises and lies are made with deeper cuts"
 
 def on_after79():
     global LeftS2
@@ -1106,7 +1110,7 @@ def on_after91():
     DownF2.set_velocity(0, 125)
 timer.after(29250, on_after91)
 
-# verse 1 "im okay"
+# VERSE 1 LINE 5 "im okay"
 
 def on_after92():
     global LeftS2
@@ -1135,7 +1139,7 @@ def on_after94():
     DownF2.set_velocity(0, 125)
 timer.after(31500, on_after94)
 
-# verse 1 "unafraid"
+# VERSE 1 LINE 6 "unafraid"
 
 def on_after95():
     global LeftS2
@@ -1164,7 +1168,7 @@ def on_after97():
     UpD2.set_velocity(0, 125)
 timer.after(33000, on_after97)
 
-# verse 1 "when my lungs collapse its overkill"
+# VERSE 1 LINE 7 "when my lungs collapse its overkill"
 
 def on_after98():
     global LeftS2
@@ -1247,7 +1251,7 @@ def on_after106():
     LeftS2.set_velocity(0, 125)
 timer.after(36050, on_after106)
 
-# prechorus "two whom you wrote"
+# PRECHORUS LINE 1 "two whom you wrote"
 
 def on_after107():
     global UpD2
@@ -1285,7 +1289,7 @@ def on_after110():
     DownF2.set_velocity(0, 125)
 timer.after(37900, on_after110)
 
-# prechorus "I hope they choke on words that broke me"
+# PRECHORUS LINE 2 "I hope they choke on words that broke me"
 
 def on_after111():
     global LeftS2
@@ -1368,7 +1372,7 @@ def on_after119():
     RightG2.set_velocity(0, 125)
 timer.after(42035, on_after119)
 
-# prechorus "and when they ghost"
+# PRECHORUS LINE 3 "and when they ghost"
 
 def on_after120():
     global UpD2
@@ -1406,7 +1410,7 @@ def on_after123():
     DownF2.set_velocity(0, 125)
 timer.after(43900, on_after123)
 
-# prechorus "keep playing dead"
+# PRECHORUS LINE 4 "keep playing dead"
 
 def on_after124():
     global LeftS2
@@ -1444,7 +1448,7 @@ def on_after127():
     UpD2.set_velocity(0, 125)
 timer.after(45425, on_after127)
 
-# prechorus "bite my tongue instead"
+# CHORUS HOOK "bite my tongue instead!"
 
 def on_after128():
     global LeftS2
@@ -1482,7 +1486,7 @@ def on_after131():
     RightG2.set_velocity(0, 125)
 timer.after(48070, on_after131)
 
-# chorus riff 1
+# CHORUS RIFF 1
 
 def on_after132():
     global LeftS2
@@ -1601,7 +1605,7 @@ def on_after144():
     RightG2.set_velocity(0, 125)
 timer.after(51300, on_after144)
 
-# chorus riff 2
+# CHORUS RIFF 2
 
 def on_after145():
     global LeftS2
@@ -1720,7 +1724,7 @@ def on_after157():
     RightG2.set_velocity(0, 125)
 timer.after(54325, on_after157)
 
-# chorus riff repeat 1
+# CHORUS RIFF REPEAT 1
 
 def on_after158():
     global LeftS2
@@ -1821,7 +1825,7 @@ def on_after168():
     LeftS2.set_velocity(0, 125)
 timer.after(56850, on_after168)
 
-# chorus "let me burn the open wounds in you"
+# CHORUS LINE 2 "let me burn the open wounds in you, bite it instead!"
 
 def on_after169():
     global RightG2
@@ -1940,7 +1944,7 @@ def on_after181():
     UpD2.set_velocity(0, 125)
 timer.after(60090, on_after181)
 
-# post chorus "every tragic tales you've told"
+# POST-CHORUS LINE 1 "every tragic tales you've told"
 
 def on_after182():
     global RightG2
@@ -2005,7 +2009,7 @@ def on_after188():
     UpD2.set_velocity(0, 125)
 timer.after(61980, on_after188)
 
-# post chorus "becomes my clarity that i've known"
+# POST-CHORUS LINE 2 "becomes my clarity that i've known"
 
 def on_after189():
     global LeftS2
@@ -2088,7 +2092,7 @@ def on_after197():
     UpD2.set_velocity(0, 125)
 timer.after(65020, on_after197)
 
-# post chorus "that feeling something breathing under my bed"
+# POST-CHORUS LINE 3 "that feeling something breathing under my bed"
 
 def on_after198():
     global LeftS2
@@ -2117,8 +2121,6 @@ def on_after200():
     UpD2.set_velocity(0, 125)
 timer.after(66160, on_after200)
 
-# some
-
 def on_after201():
     global LeftS2
     LeftS2 = sprites.create(assets.image("""
@@ -2127,8 +2129,6 @@ def on_after201():
     tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
     LeftS2.set_velocity(0, 125)
 timer.after(66540, on_after201)
-
-# thing
 
 def on_after202():
     global DownF2
@@ -2193,7 +2193,7 @@ def on_after208():
     DownF2.set_velocity(0, 125)
 timer.after(68380, on_after208)
 
-# post chorus "something breathing next to my head instead"
+# POST-CHORUS LINE 4 "something breathing next to my head instead"
 
 def on_after209():
     global UpD2
@@ -2285,10 +2285,12 @@ def on_after218():
     DownF2.set_velocity(0, 125)
 timer.after(72120, on_after218)
 
+# SECTION 5 GAME OVER OR GAME WIN
+
 def on_after219():
-    game.splash("Hits: " + convert_to_text(hits),
-        "Misses: " + convert_to_text(miss))
-    game.game_over(True)
+    game.splash("Hits: " + convert_to_text(hits), # using the game function, creates a splash that converts the "hits" variable value into text
+        "Misses: " + convert_to_text(miss)) # also converts the "miss" variable value into text within the splash
+    game.game_over(True) # performs the above code IF player wins (finishes the whole song without getting to 0HP)
 timer.after(75000, on_after219)
 
 pause(1000)

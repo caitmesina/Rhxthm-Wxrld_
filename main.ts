@@ -283,24 +283,39 @@ combotext.setPosition(20, 11)
 //  sets the above variable in position 20x11 on the screen
 pause(2000)
 //  using the pause function, creates a 2000ms pause before running the next lines of code
-//  intro
+//  SECTION 4 THE NOTES
+//  INTRODUCTION RIFF 1
+//  sets LeftS2 at a velocity of 125. This will make it fall from top to bottom
 timer.after(300, function on_after() {
+    //  defines the function "on_after"
     
+    //  creates a new global variable "LeftS2"
     LeftS2 = sprites.create(assets.image`
         RedBarImage
     `, SpriteKind.LeftS)
+    //  assigns asset "RedBarImage" i created to the "Lefts2" variable
     tiles.placeOnTile(LeftS2, tiles.getTileLocation(3, 0))
+    //  using the tiles function, places the LeftS2 sprite in column 3, row 0 (Lane 1, above the screen)
     LeftS2.setVelocity(0, 125)
 })
+//  using the timer function, performs the above code after 300ms
+//  sets RightG2 at a velocity of 125. This will make it fall from top to bottom
 timer.after(500, function on_after2() {
+    //  defines the function "on_after2"
     
+    //  creates a new global variable "RightG2"
     RightG2 = sprites.create(assets.image`
         YellowBarImage
     `, SpriteKind.RightG)
+    //  assigns asset "YellowBarImage" i created to the "RightG2" variable
     tiles.placeOnTile(RightG2, tiles.getTileLocation(6, 0))
+    //  using the tiles function, places the RightG2 sprite in column 6, row 0 (Lane 4, above the screen)
     RightG2.setVelocity(0, 125)
 })
+//  using the timer function, performs the above code after 500ms
+//  Code in the next sequences are the same as the last (will get too repetitive). Will only comment small changes
 timer.after(700, function on_after3() {
+    //  defines the function "on_after3" etc.
     
     LeftS2 = sprites.create(assets.image`
         RedBarImage
@@ -308,6 +323,7 @@ timer.after(700, function on_after3() {
     tiles.placeOnTile(LeftS2, tiles.getTileLocation(3, 0))
     LeftS2.setVelocity(0, 125)
 })
+//  using the timer function, performs the above code after 700ms
 timer.after(900, function on_after4() {
     
     RightG2 = sprites.create(assets.image`
@@ -316,14 +332,19 @@ timer.after(900, function on_after4() {
     tiles.placeOnTile(RightG2, tiles.getTileLocation(6, 0))
     RightG2.setVelocity(0, 125)
 })
+//  using the timer function, performs the above code after 900ms
 timer.after(1250, function on_after5() {
     
+    //  creates a new global variable "UpD2"
     UpD2 = sprites.create(assets.image`
         BlueBarImage
     `, SpriteKind.UpD)
+    //  assigns asset "BlueBarImage" i created to the "UpD2" variable
     tiles.placeOnTile(UpD2, tiles.getTileLocation(4, 0))
+    //  using the tiles function, places the UpD2 sprite in column 4, row 0 (Lane 2, above the screen)
     UpD2.setVelocity(0, 125)
 })
+//  using the timer function, performs the above code after 1250ms
 timer.after(1450, function on_after6() {
     
     UpD2 = sprites.create(assets.image`
@@ -332,14 +353,19 @@ timer.after(1450, function on_after6() {
     tiles.placeOnTile(UpD2, tiles.getTileLocation(4, 0))
     UpD2.setVelocity(0, 125)
 })
+//  using the timer function, performs the above code after 1450ms
 timer.after(1650, function on_after7() {
     
+    //  creates a new global variable "DownF2"
     DownF2 = sprites.create(assets.image`
         GreenBarImage
     `, SpriteKind.DownF)
+    //  assigns asset "GreenBarImage" i created to the "DownF2" variable
     tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
+    //  using the tiles function, places the DownFw sprite in column 5, row 0 (Lane 3, above the screen)
     DownF2.setVelocity(0, 125)
 })
+//  using the timer function, performs the above code after 1650ms
 timer.after(2000, function on_after8() {
     
     UpD2 = sprites.create(assets.image`
@@ -348,6 +374,7 @@ timer.after(2000, function on_after8() {
     tiles.placeOnTile(UpD2, tiles.getTileLocation(4, 0))
     UpD2.setVelocity(0, 125)
 })
+//  using the timer function, performs the above code after 2000ms etc.
 timer.after(2200, function on_after9() {
     
     UpD2 = sprites.create(assets.image`
@@ -389,7 +416,7 @@ timer.after(3150, function on_after13() {
     RightG2.setVelocity(0, 125)
     RightG2.z = -1
 })
-//  intro riff 2
+//  INTRODUCTION RIFF 2
 timer.after(3400, function on_after14() {
     
     LeftS2 = sprites.create(assets.image`
@@ -494,7 +521,7 @@ timer.after(6150, function on_after26() {
     tiles.placeOnTile(RightG2, tiles.getTileLocation(6, 0))
     RightG2.setVelocity(0, 125)
 })
-//  intro riff repeat 1
+//  INTRODUCTION RIFF REPEAT 1
 timer.after(6350, function on_after27() {
     
     LeftS2 = sprites.create(assets.image`
@@ -599,7 +626,7 @@ timer.after(9200, function on_after39() {
     tiles.placeOnTile(RightG2, tiles.getTileLocation(6, 0))
     RightG2.setVelocity(0, 125)
 })
-//  intro riff repeat 2
+//  INTRODUCTION RIFF REPEAT 2
 timer.after(9350, function on_after40() {
     
     LeftS2 = sprites.create(assets.image`
@@ -688,7 +715,7 @@ timer.after(11800, function on_after50() {
     tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
     DownF2.setVelocity(0, 125)
 })
-//  verse 1 "you stare at me like im brain dead"
+//  VERSE 1 LINE 1 "you stare at me like i'm brain dead"
 timer.after(13050, function on_after51() {
     
     LeftS2 = sprites.create(assets.image`
@@ -753,7 +780,7 @@ timer.after(16050, function on_after58() {
     tiles.placeOnTile(LeftS2, tiles.getTileLocation(3, 0))
     LeftS2.setVelocity(0, 125)
 })
-//  verse 1 "dr bad news came with meds"
+//  VERSE 1 LINE 2 "d.r bad news came with meds"
 timer.after(19050, function on_after59() {
     
     DownF2 = sprites.create(assets.image`
@@ -810,7 +837,7 @@ timer.after(21375, function on_after65() {
     tiles.placeOnTile(RightG2, tiles.getTileLocation(6, 0))
     RightG2.setVelocity(0, 125)
 })
-//  verse 1 "think i'm suffocating underwater bad enough"
+//  VERSE 1 LINE 3 "think i'm suffocating underwater bad enough"
 timer.after(24000, function on_after66() {
     
     LeftS2 = sprites.create(assets.image`
@@ -915,7 +942,7 @@ timer.after(26250, function on_after78() {
     tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
     DownF2.setVelocity(0, 125)
 })
-//  verse 1 "empty promises and lies are made with deeper cuts"
+//  VERSE 1 LINE 4 "empty promises and lies are made with deeper cuts"
 timer.after(27000, function on_after79() {
     
     LeftS2 = sprites.create(assets.image`
@@ -1020,7 +1047,7 @@ timer.after(29250, function on_after91() {
     tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
     DownF2.setVelocity(0, 125)
 })
-//  verse 1 "im okay"
+//  VERSE 1 LINE 5 "im okay"
 timer.after(31000, function on_after92() {
     
     LeftS2 = sprites.create(assets.image`
@@ -1045,7 +1072,7 @@ timer.after(31500, function on_after94() {
     tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
     DownF2.setVelocity(0, 125)
 })
-//  verse 1 "unafraid"
+//  VERSE 1 LINE 6 "unafraid"
 timer.after(32500, function on_after95() {
     
     LeftS2 = sprites.create(assets.image`
@@ -1070,7 +1097,7 @@ timer.after(33000, function on_after97() {
     tiles.placeOnTile(UpD2, tiles.getTileLocation(4, 0))
     UpD2.setVelocity(0, 125)
 })
-//  verse 1 "when my lungs collapse its overkill"
+//  VERSE 1 LINE 7 "when my lungs collapse its overkill"
 timer.after(34500, function on_after98() {
     
     LeftS2 = sprites.create(assets.image`
@@ -1143,7 +1170,7 @@ timer.after(36050, function on_after106() {
     tiles.placeOnTile(LeftS2, tiles.getTileLocation(3, 0))
     LeftS2.setVelocity(0, 125)
 })
-//  prechorus "two whom you wrote"
+//  PRECHORUS LINE 1 "two whom you wrote"
 timer.after(36960, function on_after107() {
     
     UpD2 = sprites.create(assets.image`
@@ -1176,7 +1203,7 @@ timer.after(37900, function on_after110() {
     tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
     DownF2.setVelocity(0, 125)
 })
-//  prechorus "I hope they choke on words that broke me"
+//  PRECHORUS LINE 2 "I hope they choke on words that broke me"
 timer.after(38500, function on_after111() {
     
     LeftS2 = sprites.create(assets.image`
@@ -1249,7 +1276,7 @@ timer.after(42035, function on_after119() {
     tiles.placeOnTile(RightG2, tiles.getTileLocation(6, 0))
     RightG2.setVelocity(0, 125)
 })
-//  prechorus "and when they ghost"
+//  PRECHORUS LINE 3 "and when they ghost"
 timer.after(42950, function on_after120() {
     
     UpD2 = sprites.create(assets.image`
@@ -1282,7 +1309,7 @@ timer.after(43900, function on_after123() {
     tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
     DownF2.setVelocity(0, 125)
 })
-//  prechorus "keep playing dead"
+//  PRECHORUS LINE 4 "keep playing dead"
 timer.after(44480, function on_after124() {
     
     LeftS2 = sprites.create(assets.image`
@@ -1315,7 +1342,7 @@ timer.after(45425, function on_after127() {
     tiles.placeOnTile(UpD2, tiles.getTileLocation(4, 0))
     UpD2.setVelocity(0, 125)
 })
-//  prechorus "bite my tongue instead"
+//  CHORUS HOOK "bite my tongue instead!"
 timer.after(46875, function on_after128() {
     
     LeftS2 = sprites.create(assets.image`
@@ -1348,7 +1375,7 @@ timer.after(48070, function on_after131() {
     tiles.placeOnTile(RightG2, tiles.getTileLocation(6, 0))
     RightG2.setVelocity(0, 125)
 })
-//  chorus riff 1
+//  CHORUS RIFF 1
 timer.after(48450, function on_after132() {
     
     LeftS2 = sprites.create(assets.image`
@@ -1453,7 +1480,7 @@ timer.after(51300, function on_after144() {
     tiles.placeOnTile(RightG2, tiles.getTileLocation(6, 0))
     RightG2.setVelocity(0, 125)
 })
-//  chorus riff 2
+//  CHORUS RIFF 2
 timer.after(51500, function on_after145() {
     
     LeftS2 = sprites.create(assets.image`
@@ -1558,7 +1585,7 @@ timer.after(54325, function on_after157() {
     tiles.placeOnTile(RightG2, tiles.getTileLocation(6, 0))
     RightG2.setVelocity(0, 125)
 })
-//  chorus riff repeat 1
+//  CHORUS RIFF REPEAT 1
 timer.after(54500, function on_after158() {
     
     LeftS2 = sprites.create(assets.image`
@@ -1647,7 +1674,7 @@ timer.after(56850, function on_after168() {
     tiles.placeOnTile(LeftS2, tiles.getTileLocation(3, 0))
     LeftS2.setVelocity(0, 125)
 })
-//  chorus "let me burn the open wounds in you"
+//  CHORUS LINE 2 "let me burn the open wounds in you, bite it instead!"
 timer.after(57050, function on_after169() {
     
     RightG2 = sprites.create(assets.image`
@@ -1752,7 +1779,7 @@ timer.after(60090, function on_after181() {
     tiles.placeOnTile(UpD2, tiles.getTileLocation(4, 0))
     UpD2.setVelocity(0, 125)
 })
-//  post chorus "every tragic tales you've told"
+//  POST-CHORUS LINE 1 "every tragic tales you've told"
 timer.after(60460, function on_after182() {
     
     RightG2 = sprites.create(assets.image`
@@ -1809,7 +1836,7 @@ timer.after(61980, function on_after188() {
     tiles.placeOnTile(UpD2, tiles.getTileLocation(4, 0))
     UpD2.setVelocity(0, 125)
 })
-//  post chorus "becomes my clarity that i've known"
+//  POST-CHORUS LINE 2 "becomes my clarity that i've known"
 timer.after(62550, function on_after189() {
     
     LeftS2 = sprites.create(assets.image`
@@ -1882,7 +1909,7 @@ timer.after(65020, function on_after197() {
     tiles.placeOnTile(UpD2, tiles.getTileLocation(4, 0))
     UpD2.setVelocity(0, 125)
 })
-//  post chorus "that feeling something breathing under my bed"
+//  POST-CHORUS LINE 3 "that feeling something breathing under my bed"
 timer.after(65590, function on_after198() {
     
     LeftS2 = sprites.create(assets.image`
@@ -1907,7 +1934,6 @@ timer.after(66160, function on_after200() {
     tiles.placeOnTile(UpD2, tiles.getTileLocation(4, 0))
     UpD2.setVelocity(0, 125)
 })
-//  some
 timer.after(66540, function on_after201() {
     
     LeftS2 = sprites.create(assets.image`
@@ -1916,7 +1942,6 @@ timer.after(66540, function on_after201() {
     tiles.placeOnTile(LeftS2, tiles.getTileLocation(3, 0))
     LeftS2.setVelocity(0, 125)
 })
-//  thing
 timer.after(66715, function on_after202() {
     
     DownF2 = sprites.create(assets.image`
@@ -1973,7 +1998,7 @@ timer.after(68380, function on_after208() {
     tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
     DownF2.setVelocity(0, 125)
 })
-//  post chorus "something breathing next to my head instead"
+//  POST-CHORUS LINE 4 "something breathing next to my head instead"
 timer.after(69520, function on_after209() {
     
     UpD2 = sprites.create(assets.image`
@@ -2054,8 +2079,12 @@ timer.after(72120, function on_after218() {
     tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
     DownF2.setVelocity(0, 125)
 })
+//  SECTION 5 GAME OVER OR GAME WIN
+//  performs the above code IF player wins (finishes the whole song without getting to 0HP)
 timer.after(75000, function on_after219() {
     game.splash("Hits: " + convertToText(hits), "Misses: " + convertToText(miss))
+    //  using the game function, creates a splash that converts the "hits" variable value into text
+    //  also converts the "miss" variable value into text within the splash
     game.gameOver(true)
 })
 pause(1000)
