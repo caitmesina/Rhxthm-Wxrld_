@@ -1,33 +1,15 @@
- 
+# PROJECT DETAILS
 
+Project Type: Rhythm Game
 
-> Open this page at [https://caitmesina.github.io/rhythm-retro-rush/](https://caitmesina.github.io/rhythm-retro-rush/)
+Users are to tap 4 sets of keys (S, D, F, G keys) in beat with the music. These beats represented as coloured bars/notes that fall towards the bottom of the screen are rhythmically synchronised with the music. Accuracy is required, testing a user’s hand-eye coordination and sense of rhythm. A scoring system based on this accuracy; users will fail if too many beats were missed and their HP reaches 0.
 
-## Use as Extension
+## HOW TO NAVIGATE PROJECT FILES
 
-This repository can be added as an **extension** in MakeCode.
+The files that hold all the code for this project are:
 
-* open [https://arcade.makecode.com/](https://arcade.makecode.com/)
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for **https://github.com/caitmesina/rhythm-retro-rush** and import
+___main.ts___ and ___main.py___
 
-## Edit this project ![Build status badge](https://github.com/caitmesina/rhythm-retro-rush/workflows/MakeCode/badge.svg)
+## HOW TO PLAY
 
-To edit this repository in MakeCode.
-
-* open [https://arcade.makecode.com/](https://arcade.makecode.com/)
-* click on **Import** then click on **Import URL**
-* paste **https://github.com/caitmesina/rhythm-retro-rush** and click import
-
-## Blocks preview
-
-This image shows the blocks code from the last commit in master.
-This image may take a few minutes to refresh.
-
-![A rendered view of the blocks](https://github.com/caitmesina/rhythm-retro-rush/raw/master/.github/makecode/blocks.png)
-
-#### Metadata (used for search, rendering)
-
-* for PXT/arcade
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+Link to simulator: [https://arcade.makecode.com/S43838-97211-96847-02394](https://arcade.makecode.com/S43838-97211-96847-02394)
