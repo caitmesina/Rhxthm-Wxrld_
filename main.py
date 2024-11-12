@@ -2306,9 +2306,3 @@ def on_on_zero(status): # defines the function "on_on_zero" with "status" variab
     BlackBackground.z = 5 # sets z value of background high so it sits above the notes.
     game.game_over(False) # using the game function, tells the system that this the player loses
 statusbars.on_zero(StatusBarKind.health, on_on_zero) # performs the above code when the status bar HP reaches 0. 
-
-pause(1000) # using the pause function, waits 1000ms until it runs the next line of code.
-music.play(music.create_song(assets.song("""
-        Instead
-    """)),
-    music.PlaybackMode.UNTIL_DONE) # using the music function, plays the asset "instead" that I made until it is finished playing.
