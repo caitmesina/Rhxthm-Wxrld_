@@ -7,9 +7,12 @@ namespace SpriteKind {
 }
 
 //  SECTION 1: CODE TO RUN ON HITS AND MISSES
+//  elements of code in SECTION 1 were inspired by a combination these template: 
+//  LcAtonal. (2021, June). Da Test. https://arcade.makecode.com/85601-16254-69715-75720 
+//  brandodon. (2021, June). Rhythm Rave (game results). https://arcade.makecode.com/82975-94322-58319-87649 
 //  CODE FOR LANE 1 (HITS)
 //  defines "on_overlap_tile" function in order to perform specific tasks
-//  uses the status bar function to change the player's HP by +1
+//  calls the status bar function to change the player's HP by +1
 scene.onOverlapTile(SpriteKind.LeftS, assets.tile`
         HitBoxS
     `, function on_overlap_tile(sprite: Sprite, location: tiles.Location) {
@@ -33,7 +36,7 @@ scene.onOverlapTile(SpriteKind.LeftS, assets.tile`
     textSprite.setPosition(20, 20)
     //  positions the above textSprite at the 20x20th pixel
     info.changeScoreBy(150)
-    //  uses the info function to change the score value by +150
+    // calls the info function to change the score value by +150
     statusbar.value += 1
 })
 //  assigns the tile "HitBoxS" I created as the tile in which if the sprite overlaps it, it performs the code above.
@@ -228,7 +231,7 @@ let RightG2 : Sprite = null
 let LeftS2 : Sprite = null
 let textSprite : TextSprite = null
 let statusbar : StatusBarSprite = null
-//  using the MakeyMakey function extension, remaps the Makecode Arcade's default keys into new key bindings.
+//  calling the MakeyMakey function extension, remaps the Makecode Arcade's default keys into new key bindings.
 //  REFERENCE MAKER
 MakeyMakey.setSimulatorKeymap(MakeyMakey.PlayerNumber.ONE, MakeyMakey.MakeyMakeyKey.D, MakeyMakey.MakeyMakeyKey.F, MakeyMakey.MakeyMakeyKey.S, MakeyMakey.MakeyMakeyKey.G, MakeyMakey.MakeyMakeyKey.A, MakeyMakey.MakeyMakeyKey.SPACE)
 //  remaps to UP key to the D key
@@ -240,27 +243,27 @@ MakeyMakey.setSimulatorKeymap(MakeyMakey.PlayerNumber.ONE, MakeyMakey.MakeyMakey
 scene.setBackgroundImage(assets.image`
     TitleScreen
 `)
-//  using the scene function, sets the background to the game logo I designed for the title screen.
+//  calling the scene function, sets the background to the game logo I designed for the title screen.
 music.play(music.melodyPlayable(music.magicWand), music.PlaybackMode.UntilDone)
-//  using the music function, plays a short jingle agic_wand (made by MakeCode Arcade) until it is finished
+//  calling the music function, plays a short jingle agic_wand (made by MakeCode Arcade) until it is finished
 game.showLongText("Greetings! Welcome to Rhxthm Wxrld_!", DialogLayout.Bottom)
-//  using the game function, displayes a text with the string, positioned at the bottom of the screen
+//  calling the game function, displayes a text with the string, positioned at the bottom of the screen
 game.showLongText("Press the S, D, F, G keys in time with the music!", DialogLayout.Bottom)
 game.showLongText("Coloured bars will fall and you must press the correct corresponding key!", DialogLayout.Bottom)
 game.showLongText("Try and aim your hits to when the coloured bars reach the white line.", DialogLayout.Bottom)
 game.showLongText("Good luck...", DialogLayout.Bottom)
 scene.setBackgroundColor(15)
-//  using the scene function, sets the background colour of the game to "15" or black.
+//  calling the scene function, sets the background colour of the game to "15" or black.
 scene.setBackgroundImage(assets.image`
     GameBackground
 `)
-//  using the scene function, sets the background image to a game background asset I created.
+//  calling the scene function, sets the background image to a game background asset I created.
 tiles.setCurrentTilemap(tilemap`
     TileMapDefault
 `)
-//  using the tiles function, sets the current tilemap to the "TileMapDefault" asset for the start of the game.
+//  calling the tiles function, sets the current tilemap to the "TileMapDefault" asset for the start of the game.
 statusbar = statusbars.create(6, 70, StatusBarKind.Health)
-//  using the status bar extension to create a HP bar, creates a status bar variable with width 6 and height 70. Also inputs the variable StatusBarKind.health to call.
+//  calling the status bar extension to create a HP bar, creates a status bar variable with width 6 and height 70. Also inputs the variable StatusBarKind.health to call.
 statusbar.max = 50
 //  sets maximum HP to 50
 statusbar.value = 25
@@ -282,11 +285,13 @@ let combotext = textsprite.create("COMBO")
 combotext.setPosition(20, 11)
 //  sets the above variable in position 20x11 on the screen
 pause(2000)
-//  using the pause function, creates a 2000ms pause before running the next lines of code
+//  calling the pause function, creates a 2000ms pause before running the next lines of code
 //  SECTION 4 THE NOTES
+//  elements of code in SECTION 4 were inspired by this template:
+//  LcAtonal. (2021, June). Da Test. https://arcade.makecode.com/85601-16254-69715-75720
 //  INTRODUCTION RIFF 1
 //  sets LeftS2 at a velocity of 125. This will make it fall from top to bottom
-timer.after(300, function on_after() {
+timer.after(325, function on_after() {
     //  defines the function "on_after"
     
     //  creates a new global variable "LeftS2"
@@ -295,10 +300,10 @@ timer.after(300, function on_after() {
     `, SpriteKind.LeftS)
     //  assigns asset "RedBarImage" i created to the "Lefts2" variable
     tiles.placeOnTile(LeftS2, tiles.getTileLocation(3, 0))
-    //  using the tiles function, places the LeftS2 sprite in column 3, row 0 (Lane 1, above the screen)
+    //  calling the tiles function, places the LeftS2 sprite in column 3, row 0 (Lane 1, above the screen)
     LeftS2.setVelocity(0, 125)
 })
-//  using the timer function, performs the above code after 300ms
+//  calling the timer function, performs the above code after 300ms
 //  sets RightG2 at a velocity of 125. This will make it fall from top to bottom
 timer.after(500, function on_after2() {
     //  defines the function "on_after2"
@@ -309,10 +314,10 @@ timer.after(500, function on_after2() {
     `, SpriteKind.RightG)
     //  assigns asset "YellowBarImage" i created to the "RightG2" variable
     tiles.placeOnTile(RightG2, tiles.getTileLocation(6, 0))
-    //  using the tiles function, places the RightG2 sprite in column 6, row 0 (Lane 4, above the screen)
+    //  calling the tiles function, places the RightG2 sprite in column 6, row 0 (Lane 4, above the screen)
     RightG2.setVelocity(0, 125)
 })
-//  using the timer function, performs the above code after 500ms
+//  calling the timer function, performs the above code after 500ms
 //  Code in the next sequences are the same as the last (will get too repetitive). Will only comment small changes
 timer.after(700, function on_after3() {
     //  defines the function "on_after3" etc.
@@ -323,7 +328,7 @@ timer.after(700, function on_after3() {
     tiles.placeOnTile(LeftS2, tiles.getTileLocation(3, 0))
     LeftS2.setVelocity(0, 125)
 })
-//  using the timer function, performs the above code after 700ms
+//  calling the timer function, performs the above code after 700ms
 timer.after(900, function on_after4() {
     
     RightG2 = sprites.create(assets.image`
@@ -332,7 +337,7 @@ timer.after(900, function on_after4() {
     tiles.placeOnTile(RightG2, tiles.getTileLocation(6, 0))
     RightG2.setVelocity(0, 125)
 })
-//  using the timer function, performs the above code after 900ms
+//  calling the timer function, performs the above code after 900ms
 timer.after(1250, function on_after5() {
     
     //  creates a new global variable "UpD2"
@@ -341,10 +346,10 @@ timer.after(1250, function on_after5() {
     `, SpriteKind.UpD)
     //  assigns asset "BlueBarImage" i created to the "UpD2" variable
     tiles.placeOnTile(UpD2, tiles.getTileLocation(4, 0))
-    //  using the tiles function, places the UpD2 sprite in column 4, row 0 (Lane 2, above the screen)
+    //  calling the tiles function, places the UpD2 sprite in column 4, row 0 (Lane 2, above the screen)
     UpD2.setVelocity(0, 125)
 })
-//  using the timer function, performs the above code after 1250ms
+//  calling the timer function, performs the above code after 1250ms
 timer.after(1450, function on_after6() {
     
     UpD2 = sprites.create(assets.image`
@@ -353,7 +358,7 @@ timer.after(1450, function on_after6() {
     tiles.placeOnTile(UpD2, tiles.getTileLocation(4, 0))
     UpD2.setVelocity(0, 125)
 })
-//  using the timer function, performs the above code after 1450ms
+//  calling the timer function, performs the above code after 1450ms
 timer.after(1650, function on_after7() {
     
     //  creates a new global variable "DownF2"
@@ -362,10 +367,10 @@ timer.after(1650, function on_after7() {
     `, SpriteKind.DownF)
     //  assigns asset "GreenBarImage" i created to the "DownF2" variable
     tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
-    //  using the tiles function, places the DownFw sprite in column 5, row 0 (Lane 3, above the screen)
+    //  calling the tiles function, places the DownFw sprite in column 5, row 0 (Lane 3, above the screen)
     DownF2.setVelocity(0, 125)
 })
-//  using the timer function, performs the above code after 1650ms
+//  calling the timer function, performs the above code after 1650ms
 timer.after(2000, function on_after8() {
     
     UpD2 = sprites.create(assets.image`
@@ -374,7 +379,7 @@ timer.after(2000, function on_after8() {
     tiles.placeOnTile(UpD2, tiles.getTileLocation(4, 0))
     UpD2.setVelocity(0, 125)
 })
-//  using the timer function, performs the above code after 2000ms etc.
+//  calling the timer function, performs the above code after 2000ms etc.
 timer.after(2200, function on_after9() {
     
     UpD2 = sprites.create(assets.image`
@@ -417,7 +422,7 @@ timer.after(3150, function on_after13() {
     RightG2.z = -1
 })
 //  INTRODUCTION RIFF 2
-timer.after(3400, function on_after14() {
+timer.after(3300, function on_after14() {
     
     LeftS2 = sprites.create(assets.image`
         RedBarImage
@@ -425,7 +430,7 @@ timer.after(3400, function on_after14() {
     tiles.placeOnTile(LeftS2, tiles.getTileLocation(3, 0))
     LeftS2.setVelocity(0, 125)
 })
-timer.after(3500, function on_after15() {
+timer.after(3550, function on_after15() {
     
     DownF2 = sprites.create(assets.image`
         GreenBarImage
@@ -781,7 +786,7 @@ timer.after(16050, function on_after58() {
     LeftS2.setVelocity(0, 125)
 })
 //  VERSE 1 LINE 2 "d.r bad news came with meds"
-timer.after(19050, function on_after59() {
+timer.after(19075, function on_after59() {
     
     DownF2 = sprites.create(assets.image`
         GreenBarImage
@@ -1277,7 +1282,7 @@ timer.after(42035, function on_after119() {
     RightG2.setVelocity(0, 125)
 })
 //  PRECHORUS LINE 3 "and when they ghost"
-timer.after(42950, function on_after120() {
+timer.after(42975, function on_after120() {
     
     UpD2 = sprites.create(assets.image`
         BlueBarImage
@@ -1285,7 +1290,7 @@ timer.after(42950, function on_after120() {
     tiles.placeOnTile(UpD2, tiles.getTileLocation(4, 0))
     UpD2.setVelocity(0, 125)
 })
-timer.after(43150, function on_after121() {
+timer.after(43175, function on_after121() {
     
     UpD2 = sprites.create(assets.image`
         BlueBarImage
@@ -2079,27 +2084,25 @@ timer.after(72120, function on_after218() {
     tiles.placeOnTile(DownF2, tiles.getTileLocation(5, 0))
     DownF2.setVelocity(0, 125)
 })
-pause(1000)
-music.play(music.createSong(assets.song`
-        Instead
-    `), music.PlaybackMode.UntilDone)
 //  SECTION 5 GAME OVER OR GAME WIN
+//  elements of code in SECTION 5 were inspired by a combination these template:
+//  brandodon. (2021, June). Rhythm Rave (game results). https://arcade.makecode.com/82975-94322-58319-87649 
 //  IF THEY WIN
 //  performs the above code IF player wins (finishes the whole song without getting to 0HP)
 timer.after(75000, function on_after219() {
     game.splash("Hits: " + convertToText(hits), "Misses: " + convertToText(miss))
-    //  using the game function, creates a splash that converts the "hits" variable value into text
+    //  calling the game function, creates a splash that converts the "hits" variable value into text
     //  also converts the "miss" variable value into text within the splash
     game.gameOver(true)
 })
 //  IF THEY LOSE
-//  using the game function, tells the system that this the player loses
+//  calling the game function, tells the system that this the player loses
 statusbars.onZero(StatusBarKind.Health, function on_on_zero(status: StatusBarSprite) {
     //  defines the function "on_on_zero" with "status" variable
     
     //  creates global variable BlackBackground
     music.stopAllSounds()
-    //  using the music function, stops all sounds. So when the game over screen pops up the song isn't still playing in the back
+    //  calling the music function, stops all sounds. So when the game over screen pops up the song isn't still playing in the back
     BlackBackground = sprites.create(assets.image`
         GameBackground
     `, SpriteKind.Player)
@@ -2109,66 +2112,9 @@ statusbars.onZero(StatusBarKind.Health, function on_on_zero(status: StatusBarSpr
     game.gameOver(false)
 })
 //  performs the above code when the status bar HP reaches 0. 
-game.onUpdate(function on_on_update() {
-    
-    if (controller.left.isPressed()) {
-        if (LeftS2.tileKindAt(TileDirection.Center, assets.tile`
-            HitBoxS
-        `)) {
-            if (wait == 0) {
-                miss += 1
-                wait = 10
-            } else {
-                wait += -1
-            }
-            
-        }
-        
-    }
-    
-    if (controller.up.isPressed()) {
-        if (UpD2.tileKindAt(TileDirection.Center, assets.tile`
-            HitBoxD
-        `)) {
-            if (wait == 0) {
-                miss += 1
-                wait = 10
-            } else {
-                wait += -1
-            }
-            
-        }
-        
-    }
-    
-    if (controller.right.isPressed()) {
-        if (DownF2.tileKindAt(TileDirection.Center, assets.tile`
-            HitBoxF
-        `)) {
-            if (wait == 0) {
-                miss += 1
-                wait = 10
-            } else {
-                wait += -1
-            }
-            
-        }
-        
-    }
-    
-    if (controller.down.isPressed()) {
-        if (RightG2.tileKindAt(TileDirection.Center, assets.tile`
-            HitBoxG
-        `)) {
-            if (wait == 0) {
-                miss += 1
-                wait = 10
-            } else {
-                wait += -1
-            }
-            
-        }
-        
-    }
-    
-})
+pause(1000)
+//  the following is not an original song (however asset is created and transposed by me):
+//  Xdinary Heroes (featuring Yoon Do Hyun). (2024). iNSTEAD!. on LIVE and FALL. JYP Entertainment.
+music.play(music.createSong(assets.song`
+        Instead
+    `), music.PlaybackMode.UntilDone)
