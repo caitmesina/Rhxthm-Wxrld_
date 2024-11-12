@@ -2327,3 +2327,4 @@ music.play(music.create_song(assets.song("""
     """)),
     music.PlaybackMode.UNTIL_DONE) # calls the music function and playes the asset "instead" until it is done.
 
+

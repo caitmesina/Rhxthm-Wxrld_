@@ -2112,9 +2112,13 @@ statusbars.onZero(StatusBarKind.Health, function on_on_zero(status: StatusBarSpr
     game.gameOver(false)
 })
 //  performs the above code when the status bar HP reaches 0. 
+
 pause(1000)
-//  the following is not an original song (however asset is created and transposed by me):
-//  Xdinary Heroes (featuring Yoon Do Hyun). (2024). iNSTEAD!. on LIVE and FALL. JYP Entertainment.
-music.play(music.createSong(assets.song`
+
+# the following is not an original song (however asset is created and transposed by me):
+# Xdinary Heroes (featuring Yoon Do Hyun). (2024). iNSTEAD!. on LIVE and FALL. JYP Entertainment.
+
+music.play(music.create_song(assets.song("""
         Instead
-    `), music.PlaybackMode.UntilDone)
+    """)),
+    music.PlaybackMode.UNTIL_DONE) # calls the music function and playes the asset "instead" until it is done.
