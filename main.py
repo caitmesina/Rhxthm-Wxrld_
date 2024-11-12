@@ -10,6 +10,10 @@ class SpriteKind:
 
 # SECTION 1: CODE TO RUN ON HITS AND MISSES
 
+# elements of code in SECTION 1 were inspired by a combination these template: 
+# LcAtonal. (2021, June). Da Test. https://arcade.makecode.com/85601-16254-69715-75720 
+# brandodon. (2021, June). Rhythm Rave (game results). https://arcade.makecode.com/82975-94322-58319-87649 
+
 # CODE FOR LANE 1 (HITS)
 
 # defines "on_overlap_tile" function in order to perform specific tasks
@@ -22,8 +26,8 @@ def on_overlap_tile(sprite, location): # takes the variables "sprite" and "locat
     sprites.destroy(textSprite) # destoys previous textSprite
     textSprite = textsprite.create(convert_to_text(count)) # creates a textSprite variable which converts the "count" variable into displayable text. This serves as the combo count
     textSprite.set_position(20, 20) # positions the above textSprite at the 20x20th pixel
-    info.change_score_by(150) # uses the info function to change the score value by +150
-    statusbar.value += 1 # uses the status bar function to change the player's HP by +1
+    info.change_score_by(150) #calls the info function to change the score value by +150
+    statusbar.value += 1 # calls the status bar function to change the player's HP by +1
 scene.on_overlap_tile(SpriteKind.LeftS,
     assets.tile("""
         HitBoxS
@@ -228,7 +232,7 @@ RightG2: Sprite = None
 LeftS2: Sprite = None
 textSprite: TextSprite = None
 statusbar: StatusBarSprite = None
-# using the MakeyMakey function extension, remaps the Makecode Arcade's default keys into new key bindings.
+# calling the MakeyMakey function extension, remaps the Makecode Arcade's default keys into new key bindings.
 # REFERENCE MAKER
 MakeyMakey.set_simulator_keymap(MakeyMakey.PlayerNumber.ONE,
     MakeyMakey.MakeyMakeyKey.D, # remaps to UP key to the D key
@@ -239,10 +243,10 @@ MakeyMakey.set_simulator_keymap(MakeyMakey.PlayerNumber.ONE,
     MakeyMakey.MakeyMakeyKey.SPACE) # remaps the B gameboy button to the SPACE key
 scene.set_background_image(assets.image("""
     TitleScreen
-""")) # using the scene function, sets the background to the game logo I designed for the title screen.
+""")) # calling the scene function, sets the background to the game logo I designed for the title screen.
 music.play(music.melody_playable(music.magic_wand),
-    music.PlaybackMode.UNTIL_DONE) # using the music function, plays a short jingle agic_wand (made by MakeCode Arcade) until it is finished
-game.show_long_text("Greetings! Welcome to Rhxthm Wxrld_!", DialogLayout.BOTTOM) # using the game function, displayes a text with the string, positioned at the bottom of the screen
+    music.PlaybackMode.UNTIL_DONE) # calling the music function, plays a short jingle agic_wand (made by MakeCode Arcade) until it is finished
+game.show_long_text("Greetings! Welcome to Rhxthm Wxrld_!", DialogLayout.BOTTOM) # calling the game function, displayes a text with the string, positioned at the bottom of the screen
 game.show_long_text("Press the S, D, F, G keys in time with the music!",
     DialogLayout.BOTTOM)
 game.show_long_text("Coloured bars will fall and you must press the correct corresponding key!",
@@ -250,14 +254,14 @@ game.show_long_text("Coloured bars will fall and you must press the correct corr
 game.show_long_text("Try and aim your hits to when the coloured bars reach the white line.",
     DialogLayout.BOTTOM)
 game.show_long_text("Good luck...", DialogLayout.BOTTOM)
-scene.set_background_color(15) # using the scene function, sets the background colour of the game to "15" or black.
+scene.set_background_color(15) # calling the scene function, sets the background colour of the game to "15" or black.
 scene.set_background_image(assets.image("""
     GameBackground
-""")) # using the scene function, sets the background image to a game background asset I created.
+""")) # calling the scene function, sets the background image to a game background asset I created.
 tiles.set_current_tilemap(tilemap("""
     TileMapDefault
-""")) # using the tiles function, sets the current tilemap to the "TileMapDefault" asset for the start of the game.
-statusbar = statusbars.create(6, 70, StatusBarKind.health) # using the status bar extension to create a HP bar, creates a status bar variable with width 6 and height 70. Also inputs the variable StatusBarKind.health to call.
+""")) # calling the tiles function, sets the current tilemap to the "TileMapDefault" asset for the start of the game.
+statusbar = statusbars.create(6, 70, StatusBarKind.health) # calling the status bar extension to create a HP bar, creates a status bar variable with width 6 and height 70. Also inputs the variable StatusBarKind.health to call.
 statusbar.max = 50 # sets maximum HP to 50
 statusbar.value = 25 # sets default HP to 25 when game starts
 statusbar.set_bar_border(1, 1) # sets a white HP bar border with width 1x1 pixel
@@ -268,9 +272,12 @@ textSprite = textsprite.create(convert_to_text(count)) # creates a textSprite, c
 textSprite.set_position(20, 20) # sets the above textSprite to position 20x20
 combotext = textsprite.create("COMBO") # creating a combotext variable, attributes the textsprite function to display the string "COMBO" so players know what the number is
 combotext.set_position(20, 11) # sets the above variable in position 20x11 on the screen
-pause(2000) # using the pause function, creates a 2000ms pause before running the next lines of code
+pause(2000) # calling the pause function, creates a 2000ms pause before running the next lines of code
 
 # SECTION 4 THE NOTES
+
+# elements of code in SECTION 4 were inspired by this template:
+# LcAtonal. (2021, June). Da Test. https://arcade.makecode.com/85601-16254-69715-75720
 
 # INTRODUCTION RIFF 1
 
@@ -279,18 +286,18 @@ def on_after(): # defines the function "on_after"
     LeftS2 = sprites.create(assets.image("""
         RedBarImage
     """), SpriteKind.LeftS) # assigns asset "RedBarImage" i created to the "Lefts2" variable
-    tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0)) # using the tiles function, places the LeftS2 sprite in column 3, row 0 (Lane 1, above the screen)
+    tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0)) # calling the tiles function, places the LeftS2 sprite in column 3, row 0 (Lane 1, above the screen)
     LeftS2.set_velocity(0, 125) # sets LeftS2 at a velocity of 125. This will make it fall from top to bottom
-timer.after(300, on_after) # using the timer function, performs the above code after 300ms
+timer.after(325, on_after) # calling the timer function, performs the above code after 300ms
 
 def on_after2(): # defines the function "on_after2"
     global RightG2 # creates a new global variable "RightG2"
     RightG2 = sprites.create(assets.image("""
         YellowBarImage
     """), SpriteKind.RightG) # assigns asset "YellowBarImage" i created to the "RightG2" variable
-    tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0)) # using the tiles function, places the RightG2 sprite in column 6, row 0 (Lane 4, above the screen)
+    tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0)) # calling the tiles function, places the RightG2 sprite in column 6, row 0 (Lane 4, above the screen)
     RightG2.set_velocity(0, 125) # sets RightG2 at a velocity of 125. This will make it fall from top to bottom
-timer.after(500, on_after2) # using the timer function, performs the above code after 500ms
+timer.after(500, on_after2) # calling the timer function, performs the above code after 500ms
 
 # Code in the next sequences are the same as the last (will get too repetitive). Will only comment small changes
 
@@ -301,7 +308,7 @@ def on_after3(): # defines the function "on_after3" etc.
     """), SpriteKind.LeftS)
     tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
     LeftS2.set_velocity(0, 125)
-timer.after(700, on_after3) # using the timer function, performs the above code after 700ms
+timer.after(700, on_after3) # calling the timer function, performs the above code after 700ms
 
 def on_after4():
     global RightG2
@@ -310,16 +317,16 @@ def on_after4():
     """), SpriteKind.RightG)
     tiles.place_on_tile(RightG2, tiles.get_tile_location(6, 0))
     RightG2.set_velocity(0, 125)
-timer.after(900, on_after4) # using the timer function, performs the above code after 900ms
+timer.after(900, on_after4) # calling the timer function, performs the above code after 900ms
 
 def on_after5():
     global UpD2 # creates a new global variable "UpD2"
     UpD2 = sprites.create(assets.image("""
         BlueBarImage
     """), SpriteKind.UpD) # assigns asset "BlueBarImage" i created to the "UpD2" variable
-    tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))  # using the tiles function, places the UpD2 sprite in column 4, row 0 (Lane 2, above the screen)
+    tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))  # calling the tiles function, places the UpD2 sprite in column 4, row 0 (Lane 2, above the screen)
     UpD2.set_velocity(0, 125)
-timer.after(1250, on_after5) # using the timer function, performs the above code after 1250ms
+timer.after(1250, on_after5) # calling the timer function, performs the above code after 1250ms
 
 def on_after6():
     global UpD2
@@ -328,16 +335,16 @@ def on_after6():
     """), SpriteKind.UpD)
     tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
     UpD2.set_velocity(0, 125)
-timer.after(1450, on_after6) # using the timer function, performs the above code after 1450ms
+timer.after(1450, on_after6) # calling the timer function, performs the above code after 1450ms
 
 def on_after7():
     global DownF2 # creates a new global variable "DownF2"
     DownF2 = sprites.create(assets.image("""
         GreenBarImage
     """), SpriteKind.DownF) # assigns asset "GreenBarImage" i created to the "DownF2" variable
-    tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0)) # using the tiles function, places the DownFw sprite in column 5, row 0 (Lane 3, above the screen)
+    tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0)) # calling the tiles function, places the DownFw sprite in column 5, row 0 (Lane 3, above the screen)
     DownF2.set_velocity(0, 125)
-timer.after(1650, on_after7) # using the timer function, performs the above code after 1650ms
+timer.after(1650, on_after7) # calling the timer function, performs the above code after 1650ms
 
 def on_after8():
     global UpD2
@@ -346,7 +353,7 @@ def on_after8():
     """), SpriteKind.UpD)
     tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
     UpD2.set_velocity(0, 125)
-timer.after(2000, on_after8) # using the timer function, performs the above code after 2000ms etc.
+timer.after(2000, on_after8) # calling the timer function, performs the above code after 2000ms etc.
 
 def on_after9():
     global UpD2
@@ -403,7 +410,7 @@ def on_after14():
     """), SpriteKind.LeftS)
     tiles.place_on_tile(LeftS2, tiles.get_tile_location(3, 0))
     LeftS2.set_velocity(0, 125)
-timer.after(3400, on_after14)
+timer.after(3300, on_after14)
 
 def on_after15():
     global DownF2
@@ -412,7 +419,7 @@ def on_after15():
     """), SpriteKind.DownF)
     tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
     DownF2.set_velocity(0, 125)
-timer.after(3500, on_after15)
+timer.after(3550, on_after15)
 
 def on_after16():
     global LeftS2
@@ -816,7 +823,7 @@ def on_after59():
     """), SpriteKind.DownF)
     tiles.place_on_tile(DownF2, tiles.get_tile_location(5, 0))
     DownF2.set_velocity(0, 125)
-timer.after(19050, on_after59)
+timer.after(19075, on_after59)
 
 def on_after60():
     global DownF2
@@ -1381,7 +1388,7 @@ def on_after120():
     """), SpriteKind.UpD)
     tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
     UpD2.set_velocity(0, 125)
-timer.after(42950, on_after120)
+timer.after(42975, on_after120)
 
 def on_after121():
     global UpD2
@@ -1390,7 +1397,7 @@ def on_after121():
     """), SpriteKind.UpD)
     tiles.place_on_tile(UpD2, tiles.get_tile_location(4, 0))
     UpD2.set_velocity(0, 125)
-timer.after(43150, on_after121)
+timer.after(43175, on_after121)
 
 def on_after122():
     global RightG2
@@ -2287,10 +2294,13 @@ timer.after(72120, on_after218)
 
 # SECTION 5 GAME OVER OR GAME WIN
 
+# elements of code in SECTION 5 were inspired by a combination these template:
+# brandodon. (2021, June). Rhythm Rave (game results). https://arcade.makecode.com/82975-94322-58319-87649 
+
 # IF THEY WIN
 
 def on_after219():
-    game.splash("Hits: " + convert_to_text(hits), # using the game function, creates a splash that converts the "hits" variable value into text
+    game.splash("Hits: " + convert_to_text(hits), # calling the game function, creates a splash that converts the "hits" variable value into text
         "Misses: " + convert_to_text(miss)) # also converts the "miss" variable value into text within the splash
     game.game_over(True) # performs the above code IF player wins (finishes the whole song without getting to 0HP)
 timer.after(75000, on_after219)
@@ -2299,10 +2309,22 @@ timer.after(75000, on_after219)
 
 def on_on_zero(status): # defines the function "on_on_zero" with "status" variable
     global BlackBackground # creates global variable BlackBackground
-    music.stop_all_sounds() # using the music function, stops all sounds. So when the game over screen pops up the song isn't still playing in the back
+    music.stop_all_sounds() # calling the music function, stops all sounds. So when the game over screen pops up the song isn't still playing in the back
     BlackBackground = sprites.create(assets.image("""
         GameBackground
     """), SpriteKind.player) # sets the "GameBackground" asset I created
     BlackBackground.z = 5 # sets z value of background high so it sits above the notes.
-    game.game_over(False) # using the game function, tells the system that this the player loses
+    game.game_over(False) # calling the game function, tells the system that this the player loses
 statusbars.on_zero(StatusBarKind.health, on_on_zero) # performs the above code when the status bar HP reaches 0. 
+
+pause(1000)
+
+# the following is not an original song (however asset is created and transposed by me):
+# Xdinary Heroes (featuring Yoon Do Hyun). (2024). iNSTEAD!. on LIVE and FALL. JYP Entertainment.
+
+music.play(music.create_song(assets.song("""
+        Instead
+    """)),
+    music.PlaybackMode.UNTIL_DONE) # calls the music function and playes the asset "instead" until it is done.
+
+
